@@ -1,0 +1,29 @@
+#include QMK_KEYBOARD_H
+
+// Define the core layers.
+
+enum {
+  LAYER_BASE,
+  LAYER_LEXT,
+  LAYER_REXT,
+  LAYER_LSYM,
+  LAYER_LSYM_EXT,
+  LAYER_RSYM,
+  LAYER_RSYM_EXT,
+  LAYER_NUM,
+  LAYER_NUM_EXT,
+  LAYER_NAV,
+  LAYER_NAV_EXT,
+  LAYER_FUNC,
+  LAYER_FUNC_EXT,
+  LAYER_CTLS
+};
+
+// Layer-tap keycodes.
+
+#define LT_NAV  LT(LAYER_NAV,  KC_S)
+#define LT_RSYM LT(LAYER_RSYM, KC_T)
+#define LT_LSYM LT(LAYER_LSYM, KC_N)
+#define LT_NUM  LT(LAYER_NUM,  KC_E)
+#define LT_LEXT LT(LAYER_LEXT, KC_ENT)
+#define LT_REXT LT(LAYER_REXT, KC_SPC)

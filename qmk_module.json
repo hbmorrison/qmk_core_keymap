@@ -1,0 +1,7 @@
+{
+    "module_name": "Core Keymap",
+    "maintainer": "hbmorrison",
+    "license": "Apache-2.0",
+    "url": "https://github.com/hbmorrison/qmk_core_keymap.git",
+    "features": {}
+}
