@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-// Define the core layers.
+// Layers.
 
 enum {
   LAYER_BASE,
@@ -27,3 +27,211 @@ enum {
 #define LT_NUM  LT(LAYER_NUM,  KC_E)
 #define LT_LEXT LT(LAYER_LEXT, KC_ENT)
 #define LT_REXT LT(LAYER_REXT, KC_SPC)
+
+// Fillers for left and right sides of upper layers.
+
+#define CORE_LFILL_T  KC_NO,  KC_NO,   KC_NO
+#define CORE_LFILL_M  KC_NO,  KC_TRNS, KC_TRNS
+#define CORE_LFILL_B  KC_NO,  KC_NO,   KC_NO
+#define CORE_LFILL_TH KC_TRNS
+
+#define CORE_RFILL_T  KC_NO,   KC_NO,   KC_NO
+#define CORE_RFILL_M  KC_TRNS, KC_TRNS, KC_NO
+#define CORE_RFILL_B  KC_NO,   KC_NO,   KC_NO
+#define CORE_RFILL_TH KC_TRNS
+
+#define CORE_LFILL_FOT KC_NO
+#define CORE_LFILL_FOM KC_NO
+#define CORE_LFILL_FOB KC_NO
+
+#define CORE_LFILL_FIT KC_NO
+#define CORE_LFILL_FIM KC_NO
+#define CORE_LFILL_FIB KC_NO
+
+#define CORE_LFILL_FOTH KC_TRNS
+
+#define CORE_RFILL_FOT KC_NO
+#define CORE_RFILL_FOM KC_NO
+#define CORE_RFILL_FOB KC_NO
+
+#define CORE_RFILL_FIT KC_NO
+#define CORE_RFILL_FIM KC_NO
+#define CORE_RFILL_FIB KC_NO
+
+#define CORE_RFILL_FOTH KC_TRNS
+
+// Base layer.
+
+#define CORE_LBASE_T KC_W, KC_F,   KC_P
+#define CORE_LBASE_M KC_R, LT_NAV, LT_RSYM
+#define CORE_LBASE_B KC_X, KC_C,   KC_D
+
+#define CORE_LBASE_TH LT_REXT
+
+#define CORE_RBASE_T KC_L,    KC_U,    KC_Y
+#define CORE_RBASE_M LT_LSYM, LT_NUM,  KC_I
+#define CORE_RBASE_B KC_H,    KC_COMM, KC_DOT
+
+#define CORE_RBASE_TH LT_LEXT
+
+// Fillers for inner and outer sides of the base layers.
+
+#define CORE_LBASE_FOT KC_Q
+#define CORE_LBASE_FOM KC_A
+#define CORE_LBASE_FOB KC_Z
+
+#define CORE_LBASE_FIT KC_B
+#define CORE_LBASE_FIM KC_G
+#define CORE_LBASE_FIB KC_V
+
+#define CORE_LBASE_FOTH KC_TAB
+
+#define CORE_RBASE_FIT KC_J
+#define CORE_RBASE_FIM KC_M
+#define CORE_RBASE_FIB KC_K
+
+#define CORE_RBASE_FOT KC_BSPC
+#define CORE_RBASE_FOM KC_O
+#define CORE_RBASE_FOB KC_SLSH
+
+#define CORE_RBASE_FOTH KC_ESC
+
+// Extended base layers.
+
+#define CORE_LEXT_T CORE_LBASE_FOT, CK_OPQA,   CORE_LBASE_FIT
+#define CORE_LEXT_M CORE_LBASE_FOM, KC_TAB,    CORE_LBASE_FIM
+#define CORE_LEXT_B CORE_LBASE_FOB, S(KC_TAB), CORE_LBASE_FIB
+
+#define CORE_LEXT_FOTH S(KC_TAB)
+#define CORE_LEXT_TH CW_TOGG
+
+#define CORE_REXT_T CORE_RBASE_FIT, CK_OPAT, CORE_RBASE_FOT
+#define CORE_REXT_M CORE_RBASE_FIM, KC_ESC,  CORE_RBASE_FOM
+#define CORE_REXT_B CORE_RBASE_FIB, CK_VCMD, CORE_RBASE_FOB
+
+#define CORE_REXT_TH CW_TOGG
+#define CORE_REXT_FOTH CK_VCMD
+
+// Symbol layers.
+
+#define CORE_LSYM_T KC_EXLM, CK_AT,   KC_DLR
+#define CORE_LSYM_M CK_TILD, KC_LPRN, KC_LCBR
+#define CORE_LSYM_B CK_GRV,  KC_LPRN, KC_RCBR
+
+#define CORE_LSYM_TH OSL(LAYER_LSYM_EXT)
+
+#define CORE_RSYM_T KC_AMPR, KC_ASTR, KC_DEL
+#define CORE_RSYM_M KC_COLN, CK_DQUO, CK_PIPE
+#define CORE_RSYM_B KC_SCLN, KC_QUOT, CK_BSLS
+
+#define CORE_RSYM_TH OSL(LAYER_RSYM_EXT)
+
+// Fillers for inner and outer sides of the symbol layers.
+
+#define CORE_LSYM_FOT KC_GRV
+#define CORE_LSYM_FOM KC_NO
+#define CORE_LSYM_FOB KC_NO
+
+#define CORE_LSYM_FIT KC_PERC
+#define CORE_LSYM_FIM KC_LBRC
+#define CORE_LSYM_FIB KC_RBRC
+
+#define CORE_RSYM_FIT KC_CIRC
+#define CORE_RSYM_FIM KC_UNDS
+#define CORE_RSYM_FIB KC_MINS
+
+#define CORE_RSYM_FOT KC_NO
+#define CORE_RSYM_FOM KC_PLUS
+#define CORE_RSYM_FOB KC_EQL
+
+// Extended symbol layers.
+
+#define CORE_LSYM_EXT_T CORE_LSYM_FOT, KC_HASH, CORE_LSYM_FIT
+#define CORE_LSYM_EXT_M CORE_LSYM_FOM, KC_NO,   CORE_LSYM_FIM
+#define CORE_LSYM_EXT_B CORE_LSYM_FOB, KC_NO,   CORE_LSYM_FIB
+
+#define CORE_RSYM_EXT_T CORE_RSYM_FIT, KC_NO, CORE_RSYM_FOT
+#define CORE_RSYM_EXT_M CORE_RSYM_FIM, KC_NO, CORE_RSYM_FOM
+#define CORE_RSYM_EXT_B CORE_RSYM_FIB, KC_NO, CORE_RSYM_FOB
+
+// Number and navigation layers.
+
+#define CORE_NUM_T KC_1, KC_2, KC_3
+#define CORE_NUM_M KC_4, KC_5, KC_6
+#define CORE_NUM_B KC_7, KC_8, KC_9
+
+#define CORE_NUM_TH OSL(LAYER_NUM_EXT)
+
+#define CORE_NAV_T WS_PTAB, KC_UP,   WS_NTAB
+#define CORE_NAV_M KC_LEFT, KC_DOWN, KC_RIGHT
+#define CORE_NAV_B WS_PWIN, CK_SSHS, WS_NWIN
+
+#define CORE_NAV_TH OSL(LAYER_NAV_EXT)
+
+// Fillers for inner and outer sides of the number and navigation layers.
+
+#define CORE_NUM_FOT KC_NO
+#define CORE_NUM_FOM KC_DOT
+#define CORE_NUM_FOB KC_NO
+
+#define CORE_NUM_FIT KC_NO
+#define CORE_NUM_FIM KC_0
+#define CORE_NUM_FIB KC_NO
+
+#define CORE_NAV_FIT KC_HOME
+#define CORE_NAV_FIM KC_PGDN
+#define CORE_NAV_FIB WS_PDSK
+
+#define CORE_NAV_FOT KC_END
+#define CORE_NAV_FOM KC_PGUP
+#define CORE_NAV_FOB WS_NDSK
+
+// Extended number and navigation layers.
+
+#define CORE_NUM_EXT_T CORE_NUM_FOT, KC_NO, CORE_NUM_FIT
+#define CORE_NUM_EXT_M CORE_NUM_FOM, KC_NO, CORE_NUM_FIM
+#define CORE_NUM_EXT_B CORE_NUM_FOB, KC_NO, CORE_NUM_FIB
+
+#define CORE_NAV_EXT_T CORE_NAV_FIT, KC_NO, CORE_NAV_FOT
+#define CORE_NAV_EXT_M CORE_NAV_FIM, KC_NO, CORE_NAV_FOM
+#define CORE_NAV_EXT_B CORE_NAV_FIB, KC_NO, CORE_NAV_FOB
+
+// Function and control layers.
+
+#define CORE_FUNC_T KC_F1, KC_F2, KC_F3
+#define CORE_FUNC_M KC_F4, KC_F5, KC_F6
+#define CORE_FUNC_B KC_F7, KC_F8, KC_F9
+
+#define CORE_FUNC_TH OSL(LAYER_FUNC_EXT)
+
+#define CORE_CTLS_T KC_MUTE, KC_MPLY, KC_PSCR
+#define CORE_CTLS_M KC_VOLU, KC_MNXT, KC_BRIU
+#define CORE_CTLS_B KC_VOLD, KC_MPRV, KC_BRID
+
+// Fillers for inner and outer sides of the function and control layers.
+
+#define CORE_FUNC_FOT KC_NO
+#define CORE_FUNC_FOM KC_F11
+#define CORE_FUNC_FOB KC_F12
+
+#define CORE_FUNC_FIT KC_NO
+#define CORE_FUNC_FIM KC_F10
+#define CORE_FUNC_FIB KC_NO
+
+#define CORE_CTLS_FIT KC_NO
+#define CORE_CTLS_FIM KC_NO
+#define CORE_CTLS_FIB KC_NO
+
+#define CORE_CTLS_FOT KC_NO
+#define CORE_CTLS_FOM KC_NO
+#define CORE_CTLS_FOB KC_NO
+
+// Extended function and control layers.
+
+#define CORE_FUNC_EXT_T CORE_FUNC_FOT, KC_NO, CORE_FUNC_FIT
+#define CORE_FUNC_EXT_M CORE_FUNC_FOM, KC_NO, CORE_FUNC_FIM
+#define CORE_FUNC_EXT_B CORE_FUNC_FOB, KC_NO, CORE_FUNC_FIB
+
+#define CORE_CTLS_EXT_T CORE_CTLS_FIT, KC_NO, CORE_CTLS_FOT
+#define CORE_CTLS_EXT_M CORE_CTLS_FIM, KC_NO, CORE_CTLS_FOM
+#define CORE_CTLS_EXT_B CORE_CTLS_FIB, KC_NO, CORE_CTLS_FOB
