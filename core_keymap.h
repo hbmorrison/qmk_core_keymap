@@ -16,26 +16,30 @@ enum {
   LAYER_NAV_EXT,
   LAYER_FUNC,
   LAYER_FUNC_EXT,
-  LAYER_CTLS
+  LAYER_CTLS,
+  LAYER_LMOD,
+  LAYER_RMOD
 };
 
 // Layer-tap keycodes.
 
+#define LT_LMOD LT(LAYER_LMOD, KC_R)
 #define LT_RSYM LT(LAYER_RSYM, KC_S)
 #define LT_REXT LT(LAYER_REXT, KC_T)
 #define LT_NAV  LT(LAYER_NAV,  KC_SPC)
 #define LT_NUM  LT(LAYER_NUM,  KC_ENT)
 #define LT_LEXT LT(LAYER_LEXT, KC_N)
 #define LT_LSYM LT(LAYER_LSYM, KC_E)
+#define LT_RMOD LT(LAYER_RMOD, KC_I)
 
 // Fillers for left and right sides of upper layers.
 
-#define CORE_FILL_TL  KC_NO,  KC_NO,   KC_NO
-#define CORE_FILL_ML  KC_NO,  KC_TRNS, KC_TRNS
-#define CORE_FILL_BL  KC_NO,  KC_NO,   KC_NO
+#define CORE_FILL_TL KC_NO,   KC_NO,   KC_NO
+#define CORE_FILL_ML KC_TRNS, KC_TRNS, KC_TRNS
+#define CORE_FILL_BL KC_NO,   KC_NO,   KC_NO
 
 #define CORE_FILL_TR  KC_NO,   KC_NO,   KC_NO
-#define CORE_FILL_MR  KC_TRNS, KC_TRNS, KC_NO
+#define CORE_FILL_MR  KC_TRNS, KC_TRNS, KC_TRNS
 #define CORE_FILL_BR  KC_NO,   KC_NO,   KC_NO
 
 #define CORE_FILL_OTL KC_NO
@@ -55,14 +59,32 @@ enum {
 #define CORE_FILL_THL KC_TRNS
 #define CORE_FILL_THR KC_TRNS
 
+// Transparent fillers for the mod layers.
+
+#define CORE_TRNS_TL KC_TRNS, KC_TRNS, KC_TRNS
+#define CORE_TRNS_ML KC_TRNS, KC_TRNS, KC_TRNS
+#define CORE_TRNS_BL KC_TRNS, KC_TRNS, KC_TRNS
+
+#define CORE_TRNS_TR KC_TRNS, KC_TRNS, KC_TRNS
+#define CORE_TRNS_MR KC_TRNS, KC_TRNS, KC_TRNS
+#define CORE_TRNS_BR KC_TRNS, KC_TRNS, KC_TRNS
+
+#define CORE_TRNS_OTL KC_TRNS
+#define CORE_TRNS_OML KC_TRNS
+#define CORE_TRNS_OBL KC_TRNS
+
+#define CORE_TRNS_OTR KC_TRNS
+#define CORE_TRNS_OMR KC_TRNS
+#define CORE_TRNS_OBR KC_TRNS
+
 // Base layer.
 
-#define CORE_BASE_TL KC_W, KC_F,    KC_P
-#define CORE_BASE_ML KC_R, LT_RSYM, LT_REXT
-#define CORE_BASE_BL KC_X, KC_C,    KC_D
+#define CORE_BASE_TL KC_W,    KC_F,    KC_P
+#define CORE_BASE_ML LT_LMOD, LT_RSYM, LT_REXT
+#define CORE_BASE_BL KC_X,    KC_C,    KC_D
 
 #define CORE_BASE_TR KC_L,    KC_U,    KC_BSPC
-#define CORE_BASE_MR LT_LEXT, LT_LSYM, KC_I
+#define CORE_BASE_MR LT_LEXT, LT_LSYM, LT_RMOD
 #define CORE_BASE_BR KC_H,    KC_COMM, KC_DOT
 
 #define CORE_BASE_TH  LT_NAV, LT_NUM
@@ -112,7 +134,7 @@ enum {
 
 #define CORE_SYM_TL KC_EXLM, CK_AT,   KC_DLR
 #define CORE_SYM_ML CK_TILD, KC_LPRN, KC_LCBR
-#define CORE_SYM_BL CK_GRV,  KC_LPRN, KC_RCBR
+#define CORE_SYM_BL CK_GRV,  KC_RPRN, KC_RCBR
 
 #define CORE_SYM_TR KC_AMPR, KC_ASTR, KC_DEL
 #define CORE_SYM_MR KC_COLN, CK_DQUO, CK_PIPE
@@ -245,3 +267,21 @@ enum {
 #define CORE_CTLS_EXT_TR CORE_CTLS_ITR, KC_NO, CORE_CTLS_OTR
 #define CORE_CTLS_EXT_MR CORE_CTLS_IMR, KC_NO, CORE_CTLS_OMR
 #define CORE_CTLS_EXT_BR CORE_CTLS_IBR, KC_NO, CORE_CTLS_OBR
+
+// Modifier layers.
+
+#define CORE_MOD_TL KC_NO,   KC_NO,   KC_NO
+#define CORE_MOD_ML KC_TRNS, OS_LSFT, OS_LCTL
+#define CORE_MOD_BL KC_NO,   OS_LGUI, OS_LALT
+
+#define CORE_MOD_TR KC_NO,   KC_NO,   KC_NO
+#define CORE_MOD_MR OS_RCTL, OS_RSFT, KC_TRNS
+#define CORE_MOD_BR OS_LALT, OS_RGUI, KC_NO
+
+#define CORE_LMOD_IT KC_NO, KC_TRNS
+#define CORE_LMOD_IM KC_NO, KC_TRNS
+#define CORE_LMOD_IB KC_NO, KC_TRNS
+
+#define CORE_RMOD_IT KC_TRNS, KC_NO
+#define CORE_RMOD_IM KC_TRNS, KC_NO
+#define CORE_RMOD_IB KC_TRNS, KC_NO
