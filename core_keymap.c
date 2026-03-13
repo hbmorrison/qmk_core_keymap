@@ -1,5 +1,6 @@
 #include "core_keymap.h"
 #include "conditional_layers.h"
+#include "handed_mods.h"
 
 // Define the layer masks for the conditional layers.
 

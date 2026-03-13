@@ -18,17 +18,21 @@ enum {
   LAYER_NAV_EXT,
   LAYER_FUNC,
   LAYER_FUNC_EXT,
-  LAYER_CTLS
+  LAYER_CTLS,
+  LAYER_LMOD,
+  LAYER_RMOD
 };
 
 // Layer-tap keycodes.
 
+#define LT_RMOD LT(LAYER_RMOD, KC_R)
 #define LT_RSYM LT(LAYER_RSYM, KC_S)
 #define LT_REXT LT(LAYER_REXT, KC_T)
 #define LT_NAV  LT(LAYER_NAV,  KC_SPC)
 #define LT_NUM  LT(LAYER_NUM,  KC_ENT)
 #define LT_LEXT LT(LAYER_LEXT, KC_N)
 #define LT_LSYM LT(LAYER_LSYM, KC_E)
+#define LT_LMOD LT(LAYER_LMOD, KC_L)
 
 // Fillers for left and right sides of upper layers.
 
@@ -85,12 +89,12 @@ enum {
 
 // Base layer.
 
-#define CORE_BASE_TL KC_W, KC_F,    KC_P
-#define CORE_BASE_ML KC_R, LT_RSYM, LT_REXT
-#define CORE_BASE_BL KC_X, KC_C,    KC_D
+#define CORE_BASE_TL KC_W,    KC_F,    KC_P
+#define CORE_BASE_ML LT_RMOD, LT_RSYM, LT_REXT
+#define CORE_BASE_BL KC_X,    KC_C,    KC_D
 
 #define CORE_BASE_TR KC_L,    KC_U,    KC_BSPC
-#define CORE_BASE_MR LT_LEXT, LT_LSYM, KC_I
+#define CORE_BASE_MR LT_LEXT, LT_LSYM, LT_LMOD
 #define CORE_BASE_BR KC_H,    KC_COMM, KC_DOT
 
 #define CORE_BASE_TH  LT_NAV, LT_NUM
@@ -273,3 +277,21 @@ enum {
 #define CORE_CTLS_EXT_TR CORE_CTLS_ITR, KC_NO, CORE_CTLS_OTR
 #define CORE_CTLS_EXT_MR CORE_CTLS_IMR, KC_NO, CORE_CTLS_OMR
 #define CORE_CTLS_EXT_BR CORE_CTLS_IBR, KC_NO, CORE_CTLS_OBR
+
+// Mod layers.
+
+#define CORE_MOD_TL KC_NO,   KC_NO,  KC_NO
+#define CORE_MOD_ML KC_TRNS, HM_SFT, HM_CTL
+#define CORE_MOD_BL KC_NO,   HM_GUI, HM_ALT
+
+#define CORE_MOD_TR KC_NO,  KC_NO,  KC_NO
+#define CORE_MOD_MR HM_CTL, HM_SFT, KC_TRNS
+#define CORE_MOD_BR HM_ALT, HM_GUI, KC_NO
+
+#define CORE_MOD_OTL KC_NO
+#define CORE_MOD_OML KC_NO
+#define CORE_MOD_OBL KC_NO
+
+#define CORE_MOD_OTR KC_NO
+#define CORE_MOD_OMR KC_NO
+#define CORE_MOD_OBR KC_NO
