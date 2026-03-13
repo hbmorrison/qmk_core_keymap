@@ -1,5 +1,9 @@
 #pragma once
 
+// Define the module name so other modules can detect that it is available.
+
+#define CORE_KEYMAP_MODULE
+
 // Set various terms and timeouts.
 
 #define TAPPING_TERM 175
