@@ -93,7 +93,7 @@ enum {
 #define CORE_BASE_ML LT_RMOD, LT_RSYM, LT_REXT
 #define CORE_BASE_BL KC_X,    KC_C,    KC_D
 
-#define CORE_BASE_TR KC_L,    KC_U,    KC_BSPC
+#define CORE_BASE_TR KC_L,    KC_U,    KC_Y
 #define CORE_BASE_MR LT_LEXT, LT_LSYM, LT_LMOD
 #define CORE_BASE_BR KC_H,    KC_COMM, KC_DOT
 
@@ -116,7 +116,7 @@ enum {
 #define CORE_BASE_IMR KC_M
 #define CORE_BASE_IBR KC_K
 
-#define CORE_BASE_OTR KC_Y
+#define CORE_BASE_OTR KC_BSPC
 #define CORE_BASE_OMR KC_O
 #define CORE_BASE_OBR KC_SLSH
 
