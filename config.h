@@ -8,6 +8,10 @@
 #define ONESHOT_TIMEOUT 2000
 #define CAPS_WORD_IDLE_TIMEOUT 2000
 
+// Enable permissive hold.
+
+#define PERMISSIVE_HOLD
+
 // Custom keys module options.
 
 #define CUSTOM_KEYS_INCLUDE_USER_FUNCTIONS
