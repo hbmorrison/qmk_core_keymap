@@ -16,7 +16,7 @@
 
 // Define the module name so other modules can detect that it is available.
 
-#define CORE_KEYMAP_MODULE
+#define CORE_KEYMAP_MODULE_AVAILABLE
 
 // Set various terms and timeouts.
 
