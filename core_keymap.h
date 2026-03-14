@@ -210,6 +210,12 @@ enum {
 #define CORE_NAV_MR KC_LEFT, KC_DOWN, KC_RIGHT
 #define CORE_NAV_BR WS_PWIN, CK_SSHS, WS_NWIN
 
+#define CORE_NUM_TH  CK_TOGG, KC_TRNS
+#define CORE_NAV_TH  KC_TRNS, CK_TOGG
+
+#define CORE_NUM_THL S(KC_TAB)
+#define CORE_NAV_THR CK_VCMD
+
 // Fillers for inner and outer sides of the number and navigation layers.
 
 #define CORE_NUM_OTL KC_NO
