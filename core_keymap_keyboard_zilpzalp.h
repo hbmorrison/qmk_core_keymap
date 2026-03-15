@@ -109,12 +109,12 @@
 /**/    /**/         KM_FILL_BL,    /**/           /**/           KM_CTLS_BR,   /**/         \
 /**/    /**/         KM_FILL_OTHL,  KM_FILL_ITHL,  KM_CTLS_ITHR,  KM_CTLS_OTHR
 #define KM_LMOD      /**/           /**/           /**/           /**/          /**/         \
-/**/    /**/         KM_MOD_TL,     KM_MOD_ITL,    KM_TRNS_ITR,   KM_TRNS_TR,   /**/         \
-/**/    KM_MOD_OML,  KM_MOD_ML,     KM_MOD_IML,    KM_TRNS_IMR,   KM_TRNS_MR,   KM_TRNS_OMR, \
-/**/    /**/         KM_MOD_BL,     /**/           /**/           KM_TRNS_BR,   /**/         \
-/**/    /**/         KM_MOD_OTHL,   KM_MOD_ITHL,   KM_FILL_ITHR,  KM_FILL_OTHR
-#define KM_RMOD      /**/           /**/           /**/           /**/          /**/         \
 /**/    /**/         KM_TRNS_TL,    KM_TRNS_ITL,   KM_MOD_ITR,    KM_MOD_TR,    /**/         \
 /**/    KM_TRNS_OML, KM_TRNS_ML,    KM_TRNS_IML,   KM_MOD_IMR,    KM_MOD_MR,    KM_MOD_OMR,  \
 /**/    /**/         KM_TRNS_BL,    /**/           /**/           KM_MOD_BR,    /**/         \
 /**/    /**/         KM_FILL_OTHL,  KM_FILL_ITHL,  KM_MOD_ITHR,   KM_MOD_OTHR
+#define KM_RMOD      /**/           /**/           /**/           /**/          /**/         \
+/**/    /**/         KM_MOD_TL,     KM_MOD_ITL,    KM_TRNS_ITR,   KM_TRNS_TR,   /**/         \
+/**/    KM_MOD_OML,  KM_MOD_ML,     KM_MOD_IML,    KM_TRNS_IMR,   KM_TRNS_MR,   KM_TRNS_OMR, \
+/**/    /**/         KM_MOD_BL,     /**/           /**/           KM_TRNS_BR,   /**/         \
+/**/    /**/         KM_MOD_OTHL,   KM_MOD_ITHL,   KM_FILL_ITHR,  KM_FILL_OTHR
