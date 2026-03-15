@@ -14,22 +14,23 @@
 
 #pragma once
 
-// Define the module name so other modules can detect that it is available.
+// Define layers.
 
-#define CORE_KEYMAP_MODULE_AVAILABLE
-
-// Tell the custom keys module to compile in the default _user() functions.
-
-#define CUSTOM_KEYS_INCLUDE_USER_FUNCTIONS
-
-// Set various terms and timeouts.
-
-#define TAPPING_TERM 175
-#define AUTO_SHIFT_TIMEOUT 175
-#define RETRO_SHIFT 500
-#define ONESHOT_TIMEOUT 2000
-#define CAPS_WORD_IDLE_TIMEOUT 2000
-
-// Enable permissive hold.
-
-#define PERMISSIVE_HOLD
+enum {
+  LAYER_BASE,
+  LAYER_LEXT,
+  LAYER_REXT,
+  LAYER_LSYM,
+  LAYER_LSYM_EXT,
+  LAYER_RSYM,
+  LAYER_RSYM_EXT,
+  LAYER_NUM,
+  LAYER_NUM_EXT,
+  LAYER_NAV,
+  LAYER_NAV_EXT,
+  LAYER_FUNC,
+  LAYER_FUNC_EXT,
+  LAYER_CTLS,
+  LAYER_LMOD,
+  LAYER_RMOD
+};

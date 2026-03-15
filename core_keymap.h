@@ -14,9 +14,16 @@
 
 #pragma once
 
+// Include standard QMK headers.
+
 #include QMK_KEYBOARD_H
 
-// Layers.
+// Include other module headers.
+
+#include "conditional_layers.h"
+#include "handed_mods.h"
+
+// Define the layers.
 
 enum {
   LAYER_BASE,
@@ -37,281 +44,41 @@ enum {
   LAYER_RMOD
 };
 
-// Layer-tap keycodes.
+// Check whether the standard keycodes header has been overriden.
 
-#define LT_RMOD LT(LAYER_RMOD, KC_R)
-#define LT_RSYM LT(LAYER_RSYM, KC_S)
-#define LT_REXT LT(LAYER_REXT, KC_T)
-#define LT_NAV  LT(LAYER_NAV,  KC_SPC)
-#define LT_NUM  LT(LAYER_NUM,  KC_ENT)
-#define LT_LEXT LT(LAYER_LEXT, KC_N)
-#define LT_LSYM LT(LAYER_LSYM, KC_E)
-#define LT_LMOD LT(LAYER_LMOD, KC_I)
+#ifdef CORE_KEYMAP_THUMB_MODS
+#  define CORE_KEYCODES_H "core_keymap_keycodes_thumb_mods.h"
+#endif
 
-// Fillers for left and right sides of upper layers.
+// Check whether the standard keyboard header has been overriden.
 
-#define CORE_FILL_TL KC_NO,   KC_NO,   KC_NO
-#define CORE_FILL_ML KC_TRNS, KC_TRNS, KC_TRNS
-#define CORE_FILL_BL KC_NO,   KC_NO,   KC_NO
+#if defined(CORE_KEYMAP_ZILPZALP) || defined(CORE_KEYMAP_ZILPZALP_ALT)
+#  define CORE_KEYBOARD_H "core_keymap_keyboard_zilpzalp.h"
+#endif
 
-#define CORE_FILL_TR  KC_NO,   KC_NO,   KC_NO
-#define CORE_FILL_MR  KC_TRNS, KC_TRNS, KC_TRNS
-#define CORE_FILL_BR  KC_NO,   KC_NO,   KC_NO
+// Use the standard keycodes and keyboard headers by default if no alternatives
+// have been defined.
 
-#define CORE_FILL_OTL KC_NO
-#define CORE_FILL_OML KC_NO
-#define CORE_FILL_OBL KC_NO
+#ifndef CORE_KEYCODES_H
+#  define CORE_KEYCODES_H "core_keymap_keycodes.h"
+#endif
 
-#define CORE_FILL_IT KC_NO, KC_NO
-#define CORE_FILL_IM KC_NO, KC_NO
-#define CORE_FILL_IB KC_NO, KC_NO
+#ifndef CORE_KEYBOARD_H
+#  define CORE_KEYBOARD_H "core_keymap_keyboard.h"
+#endif
 
-#define CORE_FILL_OTR KC_NO
-#define CORE_FILL_OMR KC_NO
-#define CORE_FILL_OBR KC_NO
+// Include the fillers headers first, since they have no dependencies.
 
-#define CORE_FILL_TH  KC_TRNS, KC_TRNS
+#include "core_keymap_fillers.h"
 
-#define CORE_FILL_THL KC_TRNS
-#define CORE_FILL_THR KC_TRNS
+// The keycodes header also has no dependencies.
 
-// Transparent fillers for the mod layers.
+#include CORE_KEYCODES_H
 
-#define CORE_TRNS_TL KC_TRNS, KC_TRNS, KC_TRNS
-#define CORE_TRNS_ML KC_TRNS, KC_TRNS, KC_TRNS
-#define CORE_TRNS_BL KC_TRNS, KC_TRNS, KC_TRNS
+// The extended keymap header depends on the defines in the keycodes header.
 
-#define CORE_TRNS_TR KC_TRNS, KC_TRNS, KC_TRNS
-#define CORE_TRNS_MR KC_TRNS, KC_TRNS, KC_TRNS
-#define CORE_TRNS_BR KC_TRNS, KC_TRNS, KC_TRNS
+#include "core_keymap_extended.h"
 
-#define CORE_TRNS_OTL KC_TRNS
-#define CORE_TRNS_OML KC_TRNS
-#define CORE_TRNS_OBL KC_TRNS
+// The keyboard header depends on all of the above.
 
-#define CORE_TRNS_ITL KC_TRNS, KC_NO
-#define CORE_TRNS_IML KC_TRNS, KC_NO
-#define CORE_TRNS_IBL KC_TRNS, KC_NO
-
-#define CORE_TRNS_ITR KC_NO, KC_TRNS
-#define CORE_TRNS_IMR KC_NO, KC_TRNS
-#define CORE_TRNS_IBR KC_NO, KC_TRNS
-
-#define CORE_TRNS_OTR KC_TRNS
-#define CORE_TRNS_OMR KC_TRNS
-#define CORE_TRNS_OBR KC_TRNS
-
-// Base layer.
-
-#define CORE_BASE_TL KC_W,    KC_F,    KC_P
-#define CORE_BASE_ML LT_RMOD, LT_RSYM, LT_REXT
-#define CORE_BASE_BL KC_X,    KC_C,    KC_D
-
-#define CORE_BASE_TR KC_L,    KC_U,    KC_BSPC
-#define CORE_BASE_MR LT_LEXT, LT_LSYM, LT_LMOD
-#define CORE_BASE_BR KC_H,    KC_COMM, KC_DOT
-
-#define CORE_BASE_TH  LT_NAV, LT_NUM
-
-#define CORE_BASE_THL KC_TAB
-#define CORE_BASE_THR KC_ESC
-
-// Inner and outer sides of the base layers.
-
-#define CORE_BASE_OTL KC_Q
-#define CORE_BASE_OML KC_A
-#define CORE_BASE_OBL KC_Z
-
-#define CORE_BASE_ITL KC_B
-#define CORE_BASE_IML KC_G
-#define CORE_BASE_IBL KC_V
-
-#define CORE_BASE_ITR KC_J
-#define CORE_BASE_IMR KC_M
-#define CORE_BASE_IBR KC_K
-
-#define CORE_BASE_OTR KC_Y
-#define CORE_BASE_OMR KC_O
-#define CORE_BASE_OBR KC_SLSH
-
-#define CORE_BASE_IT CORE_BASE_ITL, CORE_BASE_ITR
-#define CORE_BASE_IM CORE_BASE_IML, CORE_BASE_IMR
-#define CORE_BASE_IB CORE_BASE_IBL, CORE_BASE_IBR
-
-// Extended base layers.
-
-#define CORE_EXT_TL CORE_BASE_OTL, CK_OPQA,   CORE_BASE_ITL
-#define CORE_EXT_ML CORE_BASE_OML, KC_TAB,    CORE_BASE_IML
-#define CORE_EXT_BL CORE_BASE_OBL, S(KC_TAB), CORE_BASE_IBL
-
-#define CORE_EXT_TR CORE_BASE_ITR, CK_OPAT, CORE_BASE_OTR
-#define CORE_EXT_MR CORE_BASE_IMR, KC_ESC,  CORE_BASE_OMR
-#define CORE_EXT_BR CORE_BASE_IBR, CK_VCMD, CORE_BASE_OBR
-
-#define CORE_LEXT_TH CW_TOGG,  KC_TRNS
-#define CORE_REXT_TH KC_TRNS,  CW_TOGG
-
-#define CORE_EXT_THL S(KC_TAB)
-#define CORE_EXT_THR CK_VCMD
-
-// Symbol layers.
-
-#define CORE_SYM_TL KC_EXLM, CK_AT,   KC_DLR
-#define CORE_SYM_ML CK_TILD, KC_LPRN, KC_LCBR
-#define CORE_SYM_BL CK_GRV,  KC_RPRN, KC_RCBR
-
-#define CORE_SYM_TR KC_AMPR, KC_ASTR, KC_DEL
-#define CORE_SYM_MR KC_COLN, CK_DQUO, CK_PIPE
-#define CORE_SYM_BR KC_SCLN, KC_QUOT, CK_BSLS
-
-// Inner and outer sides of the symbol layers.
-
-#define CORE_SYM_OTL KC_GRV
-#define CORE_SYM_OML KC_NO
-#define CORE_SYM_OBL KC_NO
-
-#define CORE_SYM_ITL KC_PERC
-#define CORE_SYM_IML KC_LBRC
-#define CORE_SYM_IBL KC_RBRC
-
-#define CORE_SYM_ITR KC_CIRC
-#define CORE_SYM_IMR KC_UNDS
-#define CORE_SYM_IBR KC_MINS
-
-#define CORE_SYM_OTR KC_NO
-#define CORE_SYM_OMR KC_PLUS
-#define CORE_SYM_OBR KC_EQL
-
-#define CORE_LSYM_IT CORE_SYM_ITL, KC_NO
-#define CORE_LSYM_IM CORE_SYM_IML, KC_NO
-#define CORE_LSYM_IB CORE_SYM_IBL, KC_NO
-
-#define CORE_RSYM_IT KC_NO, CORE_SYM_ITR
-#define CORE_RSYM_IM KC_NO, CORE_SYM_IMR
-#define CORE_RSYM_IB KC_NO, CORE_SYM_IBR
-
-// Extended symbol layers.
-
-#define CORE_SYM_EXT_TL CORE_SYM_OTL, KC_HASH, CORE_SYM_ITL
-#define CORE_SYM_EXT_ML CORE_SYM_OML, KC_NO,   CORE_SYM_IML
-#define CORE_SYM_EXT_BL CORE_SYM_OBL, KC_NO,   CORE_SYM_IBL
-
-#define CORE_SYM_EXT_TR CORE_SYM_ITR, KC_NO, CORE_SYM_OTR
-#define CORE_SYM_EXT_MR CORE_SYM_IMR, KC_NO, CORE_SYM_OMR
-#define CORE_SYM_EXT_BR CORE_SYM_IBR, KC_NO, CORE_SYM_OBR
-
-// Number and navigation layers.
-
-#define CORE_NUM_TL KC_1, KC_2, KC_3
-#define CORE_NUM_ML KC_4, KC_5, KC_6
-#define CORE_NUM_BL KC_7, KC_8, KC_9
-
-#define CORE_NAV_TR WS_PWIN, KC_UP,   WS_NWIN
-#define CORE_NAV_MR KC_LEFT, KC_DOWN, KC_RIGHT
-#define CORE_NAV_BR WS_PTAB, CK_SSHS, WS_NTAB
-
-#define CORE_NUM_TH  CK_TOGG, KC_TRNS
-#define CORE_NAV_TH  KC_TRNS, CK_TOGG
-
-#define CORE_NUM_THL S(KC_TAB)
-#define CORE_NAV_THR CK_VCMD
-
-// Fillers for inner and outer sides of the number and navigation layers.
-
-#define CORE_NUM_OTL KC_NO
-#define CORE_NUM_OML KC_DOT
-#define CORE_NUM_OBL KC_NO
-
-#define CORE_NUM_ITL KC_NO
-#define CORE_NUM_IML KC_0
-#define CORE_NUM_IBL KC_NO
-
-#define CORE_NAV_ITR WS_PDSK
-#define CORE_NAV_IMR KC_HOME
-#define CORE_NAV_IBR KC_NO
-
-#define CORE_NAV_OTR WS_NDSK
-#define CORE_NAV_OMR KC_END
-#define CORE_NAV_OBR KC_NO
-
-#define CORE_NUM_IT CORE_NUM_ITL, KC_NO
-#define CORE_NUM_IM CORE_NUM_IML, KC_NO
-#define CORE_NUM_IB CORE_NUM_IBL, KC_NO
-
-#define CORE_NAV_IT KC_NO, CORE_NAV_ITR
-#define CORE_NAV_IM KC_NO, CORE_NAV_IMR
-#define CORE_NAV_IB KC_NO, CORE_NAV_IBR
-
-// Extended number and navigation layers.
-
-#define CORE_NUM_EXT_TL CORE_NUM_OTL, KC_PGUP, CORE_NUM_ITL
-#define CORE_NUM_EXT_ML CORE_NUM_OML, KC_PGDN, CORE_NUM_IML
-#define CORE_NUM_EXT_BL CORE_NUM_OBL, KC_NO,   CORE_NUM_IBL
-
-#define CORE_NAV_EXT_TR CORE_NAV_ITR, KC_NO, CORE_NAV_OTR
-#define CORE_NAV_EXT_MR CORE_NAV_IMR, KC_NO, CORE_NAV_OMR
-#define CORE_NAV_EXT_BR CORE_NAV_IBR, KC_NO, CORE_NAV_OBR
-
-// Function and control layers.
-
-#define CORE_FUNC_TL KC_F1, KC_F2, KC_F3
-#define CORE_FUNC_ML KC_F4, KC_F5, KC_F6
-#define CORE_FUNC_BL KC_F7, KC_F8, KC_F9
-
-#define CORE_CTLS_TR KC_MUTE, KC_MPLY, KC_PSCR
-#define CORE_CTLS_MR KC_VOLU, KC_MNXT, KC_BRIU
-#define CORE_CTLS_BR KC_VOLD, KC_MPRV, KC_BRID
-
-// Inner and outer sides of the function and control layers.
-
-#define CORE_FUNC_OTL KC_NO
-#define CORE_FUNC_OML KC_F11
-#define CORE_FUNC_OBL KC_F12
-
-#define CORE_FUNC_ITL KC_NO
-#define CORE_FUNC_IML KC_F10
-#define CORE_FUNC_IBL KC_NO
-
-#define CORE_CTLS_ITR KC_NO
-#define CORE_CTLS_IMR KC_NO
-#define CORE_CTLS_IBR KC_NO
-
-#define CORE_CTLS_OTR KC_NO
-#define CORE_CTLS_OMR KC_NO
-#define CORE_CTLS_OBR KC_NO
-
-#define CORE_FUNC_IT CORE_FUNC_ITL, KC_NO
-#define CORE_FUNC_IM CORE_FUNC_IML, KC_NO
-#define CORE_FUNC_IB CORE_FUNC_IBL, KC_NO
-
-#define CORE_CTLS_IT KC_NO, CORE_CTLS_ITR
-#define CORE_CTLS_IM KC_NO, CORE_CTLS_IMR
-#define CORE_CTLS_IB KC_NO, CORE_CTLS_IBR
-
-// Extended function and control layers.
-
-#define CORE_FUNC_EXT_TL CORE_FUNC_OTL, KC_NO, CORE_FUNC_ITL
-#define CORE_FUNC_EXT_ML CORE_FUNC_OML, KC_NO, CORE_FUNC_IML
-#define CORE_FUNC_EXT_BL CORE_FUNC_OBL, KC_NO, CORE_FUNC_IBL
-
-#define CORE_CTLS_EXT_TR CORE_CTLS_ITR, KC_NO, CORE_CTLS_OTR
-#define CORE_CTLS_EXT_MR CORE_CTLS_IMR, KC_NO, CORE_CTLS_OMR
-#define CORE_CTLS_EXT_BR CORE_CTLS_IBR, KC_NO, CORE_CTLS_OBR
-
-// Mod layers.
-
-#define CORE_MOD_TL KC_NO,   KC_NO,  KC_NO
-#define CORE_MOD_ML KC_TRNS, HM_SFT, HM_CTL
-#define CORE_MOD_BL KC_NO,   HM_GUI, HM_ALT
-
-#define CORE_MOD_TR KC_NO,  KC_NO,  KC_NO
-#define CORE_MOD_MR HM_CTL, HM_SFT, KC_TRNS
-#define CORE_MOD_BR HM_ALT, HM_GUI, KC_NO
-
-#define CORE_MOD_OTL KC_NO
-#define CORE_MOD_OML KC_NO
-#define CORE_MOD_OBL KC_NO
-
-#define CORE_MOD_OTR KC_NO
-#define CORE_MOD_OMR KC_NO
-#define CORE_MOD_OBR KC_NO
+#include CORE_KEYBOARD_H

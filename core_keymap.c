@@ -14,11 +14,6 @@
 
 #include "core_keymap.h"
 
-// Other module headers.
-
-#include "conditional_layers.h"
-#include "handed_mods.h"
-
 // Define the layer masks for the conditional layers.
 
 #define MASK_NUM_EXT  (LAYER_BIT(LAYER_NUM)  | LAYER_BIT(LAYER_LEXT))
@@ -51,4 +46,3 @@ void add_conditional_layers() {
 
   set_conditional_layer_mask(LAYER_CTLS, MASK_CTLS);
 };
-
