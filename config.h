@@ -24,9 +24,9 @@
 
 // Set various terms and timeouts.
 
-#define TAPPING_TERM 175
-#define AUTO_SHIFT_TIMEOUT 175
-#define RETRO_SHIFT 500
+#define TAPPING_TERM 200
+#define AUTO_SHIFT_TIMEOUT 160
+#define RETRO_SHIFT 600
 #define ONESHOT_TIMEOUT 2000
 #define CAPS_WORD_IDLE_TIMEOUT 2000
 
