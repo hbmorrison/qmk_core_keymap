@@ -18,11 +18,6 @@
 
 #include QMK_KEYBOARD_H
 
-// Include other module headers.
-
-#include "conditional_layers.h"
-#include "handed_mods.h"
-
 // Define the layers.
 
 enum {

@@ -14,6 +14,10 @@
 
 #include "core_keymap.h"
 
+// Include other module headers.
+
+#include "conditional_layers.h"
+
 // Define the layer masks for the conditional layers.
 
 #define MASK_NUM_EXT  (LAYER_BIT(LAYER_NUM)  | LAYER_BIT(LAYER_LEXT))
