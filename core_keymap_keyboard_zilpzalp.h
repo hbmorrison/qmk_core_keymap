@@ -18,29 +18,35 @@
 
 #define CORE_KEYMAP_LAYOUT(...) LAYOUT(__VA_ARGS__)
 
-// On the zilpzalp keyboard, the inner keys are mapped onto the top and middle
-// rows. In this layout, the inner keys on the base layer can be mapped onto the
-// middle and bottom keycodes instead, as a matter of preference. Just define
-// CORE_KEYMAP_ZILPZALP_ALT rather than CORE_KEYMAP_ZIPLZALP in the keymap
-// config.h.
+// CORE_KEYMAP_ZILPZALP_ALT_BASE - replaces the base layer inner key mappings on
+// the zilpzalp keyboard with inner-middle-left / inner-middle-right at the top
+// and inner-bottom-left / inner-bottom-right in the middle, instead of the
+// standard inner-top-left / inner-top-right and inner-middle-left /
+// inner-middle-right mappings that are used on the other layers.
+//
+// This means that the keys that the index fingers most naturally stretch to
+// issue bottom keys rather than middle keys, which might now feel less natural.
+// Why do that? Because it places the V key on the base layer, instead of being
+// accessed through an extended layer, which means that  pasting (Ctrl-V) is
+// just as accessibly as copying (Ctrl-C) and cutting (Ctrl-X).
 
-#ifdef CORE_KEYMAP_ZILPZALP_ALT
-#  define KM_ALT_ITL KM_BASE_IML
-#  define KM_ALT_ITR KM_BASE_IMR
-#  define KM_ALT_IML KM_BASE_IBL
-#  define KM_ALT_IMR KM_BASE_IBR
+#ifdef CORE_KEYMAP_ZILPZALP_ALT_BASE
+#  define ALT_BASE_ITL KM_BASE_IML
+#  define ALT_BASE_ITR KM_BASE_IMR
+#  define ALT_BASE_IML KM_BASE_IBL
+#  define ALT_BASE_IMR KM_BASE_IBR
 #else
-#  define KM_ALT_ITL KM_BASE_ITL
-#  define KM_ALT_ITR KM_BASE_ITR
-#  define KM_ALT_IML KM_BASE_IML
-#  define KM_ALT_IMR KM_BASE_IMR
+#  define ALT_BASE_ITL KM_BASE_ITL
+#  define ALT_BASE_ITR KM_BASE_ITR
+#  define ALT_BASE_IML KM_BASE_IML
+#  define ALT_BASE_IMR KM_BASE_IMR
 #endif
 
 // Define the layers.
 
 #define KM_BASE      /**/           /**/           /**/           /**/          /**/         \
-/**/    /**/         KM_BASE_TL,    KM_ALT_ITL,    KM_ALT_ITR,    KM_BASE_TR,   /**/         \
-/**/    KM_BASE_OML, KM_BASE_ML,    KM_ALT_IML,    KM_ALT_IMR,    KM_BASE_MR,   KM_BASE_OMR, \
+/**/    /**/         KM_BASE_TL,    ALT_BASE_ITL,  ALT_BASE_ITR,  KM_BASE_TR,   /**/         \
+/**/    KM_BASE_OML, KM_BASE_ML,    ALT_BASE_IML,  ALT_BASE_IMR,  KM_BASE_MR,   KM_BASE_OMR, \
 /**/    /**/         KM_BASE_BL,    /**/           /**/           KM_BASE_BR,   /**/         \
 /**/    /**/         KM_BASE_OTHL,  KM_BASE_ITHL,  KM_BASE_ITHR,  KM_BASE_OTHR
 #define KM_LBASEX    /**/           /**/           /**/           /**/          /**/         \
@@ -73,41 +79,41 @@
 /**/    KM_FILL_OML, KM_FILL_ML,    KM_FILL_IML,   KM_FILL_IMR,   KM_SYMX_MR,   KM_FILL_OMR, \
 /**/    /**/         KM_FILL_BL,    /**/           /**/           KM_SYMX_BR,   /**/         \
 /**/    /**/         KM_FILL_OTHL,  KM_FILL_ITHL,  KM_FILL_ITHR,  KM_FILL_OTHR
-#define KM_NUM       /**/           /**/           /**/           /**/          /**/         \
+#define KM_LNUM      /**/           /**/           /**/           /**/          /**/         \
 /**/    /**/         KM_NUM_TL,     KM_NUM_ITL,    KM_FILL_ITR,   KM_FILL_TR,   /**/         \
 /**/    KM_NUM_OML,  KM_NUM_ML,     KM_NUM_IML,    KM_FILL_IMR,   KM_FILL_MR,   KM_FILL_OMR, \
 /**/    /**/         KM_NUM_BL,     /**/           /**/           KM_FILL_BR,   /**/         \
 /**/    /**/         KM_NUM_OTHL,   KM_NUM_ITHL,   KM_FILL_ITHR,  KM_FILL_OTHR
-#define KM_NUMX      /**/           /**/           /**/           /**/          /**/         \
+#define KM_LNUMX     /**/           /**/           /**/           /**/          /**/         \
 /**/    /**/         KM_NUMX_TL,    KM_FILL_ITL,   KM_FILL_ITR,   KM_FILL_TR,   /**/         \
 /**/    KM_FILL_OML, KM_NUMX_ML,    KM_FILL_IML,   KM_FILL_IMR,   KM_FILL_MR,   KM_FILL_OMR, \
 /**/    /**/         KM_NUMX_BL,    /**/           /**/           KM_FILL_BR,   /**/         \
 /**/    /**/         KM_FILL_OTHL,  KM_FILL_ITHL,  KM_FILL_ITHR,  KM_FILL_OTHR
-#define KM_NAV       /**/           /**/           /**/           /**/          /**/         \
-/**/    /**/         KM_FILL_TL,    KM_FILL_ITL,   KM_NAV_ITR,    KM_NAV_TR,    /**/         \
-/**/    KM_FILL_OML, KM_FILL_ML,    KM_FILL_IML,   KM_NAV_IMR,    KM_NAV_MR,    KM_NAV_OMR,  \
-/**/    /**/         KM_FILL_BL,    /**/           /**/           KM_NAV_BR,    /**/         \
-/**/    /**/         KM_FILL_OTHL,  KM_FILL_ITHL,  KM_NAV_ITHR,   KM_NAV_OTHR
-#define KM_NAVX      /**/           /**/           /**/           /**/          /**/         \
-/**/    /**/         KM_FILL_TL,    KM_FILL_ITL,   KM_FILL_ITR,   KM_NAVX_TR,   /**/         \
-/**/    KM_FILL_OML, KM_FILL_ML,    KM_FILL_IML,   KM_FILL_IMR,   KM_NAVX_MR,   KM_FILL_OMR, \
-/**/    /**/         KM_FILL_BL,    /**/           /**/           KM_NAVX_BR,   /**/         \
+#define KM_RNUM      /**/           /**/           /**/           /**/          /**/         \
+/**/    /**/         KM_FILL_TL,    KM_FILL_ITL,   KM_NUM_ITR,    KM_NUM_TR,    /**/         \
+/**/    KM_FILL_OML, KM_FILL_ML,    KM_FILL_IML,   KM_NUM_IMR,    KM_NUM_MR,    KM_NUM_OMR,  \
+/**/    /**/         KM_FILL_BL,    /**/           /**/           KM_NUM_BR,    /**/         \
+/**/    /**/         KM_FILL_OTHL,  KM_FILL_ITHL,  KM_NUM_ITHR,   KM_NUM_OTHR
+#define KM_RNUMX     /**/           /**/           /**/           /**/          /**/         \
+/**/    /**/         KM_FILL_TL,    KM_FILL_ITL,   KM_FILL_ITR,   KM_NUMX_TR,   /**/         \
+/**/    KM_FILL_OML, KM_FILL_ML,    KM_FILL_IML,   KM_FILL_IMR,   KM_NUMX_MR,   KM_FILL_OMR, \
+/**/    /**/         KM_FILL_BL,    /**/           /**/           KM_NUMX_BR,   /**/         \
 /**/    /**/         KM_FILL_OTHL,  KM_FILL_ITHL,  KM_FILL_ITHR,  KM_FILL_OTHR
-#define KM_FUNC      /**/           /**/           /**/           /**/          /**/         \
-/**/    /**/         KM_FUNC_TL,    KM_FUNC_ITL,   KM_FILL_ITR,   KM_FILL_TR,   /**/         \
-/**/    KM_FUNC_OML, KM_FUNC_ML,    KM_FUNC_IML,   KM_FILL_IMR,   KM_FILL_MR,   KM_FILL_OMR, \
-/**/    /**/         KM_FUNC_BL,    /**/           /**/           KM_FILL_BR,   /**/         \
-/**/    /**/         KM_FUNC_OTHL,  KM_FUNC_ITHL,  KM_FILL_ITHR,  KM_FILL_OTHR
-#define KM_FUNCX     /**/           /**/           /**/           /**/          /**/         \
-/**/    /**/         KM_FUNCX_TL,   KM_FILL_ITL,   KM_FILL_ITR,   KM_FILL_TR,   /**/         \
-/**/    KM_FILL_OML, KM_FUNCX_ML,   KM_FILL_IML,   KM_FILL_IMR,   KM_FILL_MR,   KM_FILL_OMR, \
-/**/    /**/         KM_FUNCX_BL,   /**/           /**/           KM_FILL_BR,   /**/         \
+#define KM_LCTL      /**/           /**/           /**/           /**/          /**/         \
+/**/    /**/         KM_CTL_TL,     KM_CTL_ITL,    KM_FILL_ITR,   KM_FILL_TR,   /**/         \
+/**/    KM_CTL_OML,  KM_CTL_ML,     KM_CTL_IML,    KM_FILL_IMR,   KM_FILL_MR,   KM_FILL_OMR, \
+/**/    /**/         KM_CTL_BL,     /**/           /**/           KM_FILL_BR,   /**/         \
+/**/    /**/         KM_CTL_OTHL,   KM_CTL_ITHL,   KM_FILL_ITHR,  KM_FILL_OTHR
+#define KM_LCTLX     /**/           /**/           /**/           /**/          /**/         \
+/**/    /**/         KM_CTLX_TL,    KM_FILL_ITL,   KM_FILL_ITR,   KM_FILL_TR,   /**/         \
+/**/    KM_FILL_OML, KM_CTLX_ML,    KM_FILL_IML,   KM_FILL_IMR,   KM_FILL_MR,   KM_FILL_OMR, \
+/**/    /**/         KM_CTLX_BL,    /**/           /**/           KM_FILL_BR,   /**/         \
 /**/    /**/         KM_FILL_OTHL,  KM_FILL_ITHL,  KM_FILL_ITHR,  KM_FILL_OTHR
-#define KM_CTLS      /**/           /**/           /**/           /**/          /**/         \
-/**/    /**/         KM_FILL_TL,    KM_FILL_ITL,   KM_CTLS_ITR,   KM_CTLS_TR,   /**/         \
-/**/    KM_FILL_OML, KM_FILL_ML,    KM_FILL_IML,   KM_CTLS_IMR,   KM_CTLS_MR,   KM_CTLS_OMR, \
-/**/    /**/         KM_FILL_BL,    /**/           /**/           KM_CTLS_BR,   /**/         \
-/**/    /**/         KM_FILL_OTHL,  KM_FILL_ITHL,  KM_CTLS_ITHR,  KM_CTLS_OTHR
+#define KM_RCTL      /**/           /**/           /**/           /**/          /**/         \
+/**/    /**/         KM_FILL_TL,    KM_FILL_ITL,   KM_CTL_ITR,    KM_CTL_TR,    /**/         \
+/**/    KM_FILL_OML, KM_FILL_ML,    KM_FILL_IML,   KM_CTL_IMR,    KM_CTL_MR,    KM_CTL_OMR,  \
+/**/    /**/         KM_FILL_BL,    /**/           /**/           KM_CTL_BR,    /**/         \
+/**/    /**/         KM_FILL_OTHL,  KM_FILL_ITHL,  KM_CTL_ITHR,   KM_CTL_OTHR
 #define KM_LMOD      /**/           /**/           /**/           /**/          /**/         \
 /**/    /**/         KM_TRNS_TL,    KM_TRNS_ITL,   KM_MOD_ITR,    KM_MOD_TR,    /**/         \
 /**/    KM_TRNS_OML, KM_TRNS_ML,    KM_TRNS_IML,   KM_MOD_IMR,    KM_MOD_MR,    KM_MOD_OMR,  \

@@ -30,26 +30,38 @@
 #define KM_SYMX_ML KM_SYM_OML, KM_SYM_CML, KM_SYM_IML
 #define KM_SYMX_BL KM_SYM_OBL, KM_SYM_CBL, KM_SYM_IBL
 
-#define KM_SYMX_TR KM_SYM_ITR, KM_SYM_CTR, KM_SYM_OTR
-#define KM_SYMX_MR KM_SYM_IMR, KM_SYM_CMR, KM_SYM_OMR
-#define KM_SYMX_BR KM_SYM_IBR, KM_SYM_CBR, KM_SYM_OBR
+// CORE_KEYMAP_EXTENDED_ALT_RSYMX - moves the minus, underscore, equals and plus
+// keys to the top of the middle and right columns, rather than their default
+// placement on the bottom of the left and right columns. This makes using them
+// feel more like a standard ANSI/ISO keyboard, where these pairs of keycodes
+// sit on two keys at the top right of the keyboard.
 
-// Define the extended number and navigation layers.
+#ifdef CORE_KEYMAP_EXTENDED_ALT_RSYMX
+#  define KM_SYMX_TR KM_SYM_ITR, KM_SYM_IMR, KM_SYM_OMR
+#  define KM_SYMX_MR KC_NO,      KM_SYM_IBR, KM_SYM_OBR
+#  define KM_SYMX_BR KC_NO,      KC_NO,      KC_NO
+#else
+#  define KM_SYMX_TR KM_SYM_ITR, KM_SYM_CTR, KM_SYM_OTR
+#  define KM_SYMX_MR KM_SYM_IMR, KM_SYM_CMR, KM_SYM_OMR
+#  define KM_SYMX_BR KM_SYM_IBR, KM_SYM_CBR, KM_SYM_OBR
+#endif
+
+// Define the extended number layers.
 
 #define KM_NUMX_TL KM_NUM_OTL, KM_NUM_CTL, KM_NUM_ITL
 #define KM_NUMX_ML KM_NUM_OML, KM_NUM_CML, KM_NUM_IML
 #define KM_NUMX_BL KM_NUM_OBL, KM_NUM_CBL, KM_NUM_IBL
 
-#define KM_NAVX_TR KM_NAV_ITR, KM_NAV_CTR, KM_NAV_OTR
-#define KM_NAVX_MR KM_NAV_IMR, KM_NAV_CMR, KM_NAV_OMR
-#define KM_NAVX_BR KM_NAV_IBR, KM_NAV_CBR, KM_NAV_OBR
+#define KM_NUMX_TR KM_NUM_ITR, KM_NUM_CTR, KM_NUM_OTR
+#define KM_NUMX_MR KM_NUM_IMR, KM_NUM_CMR, KM_NUM_OMR
+#define KM_NUMX_BR KM_NUM_IBR, KM_NUM_CBR, KM_NUM_OBR
 
-// Define the extended function and control layers.
+// Define the extended control layers.
 
-#define KM_FUNCX_TL KM_FUNC_OTL, KM_FUNC_CTL, KM_FUNC_ITL
-#define KM_FUNCX_ML KM_FUNC_OML, KM_FUNC_CML, KM_FUNC_IML
-#define KM_FUNCX_BL KM_FUNC_OBL, KM_FUNC_CBL, KM_FUNC_IBL
+#define KM_CTLX_TL KM_CTL_OTL, KM_CTL_CTL, KM_CTL_ITL
+#define KM_CTLX_ML KM_CTL_OML, KM_CTL_CML, KM_CTL_IML
+#define KM_CTLX_BL KM_CTL_OBL, KM_CTL_CBL, KM_CTL_IBL
 
-#define KM_CTLSX_TR KM_CTLS_ITR, KM_CTLS_CTR, KM_CTLS_OTR
-#define KM_CTLSX_MR KM_CTLS_IMR, KM_CTLS_CMR, KM_CTLS_OMR
-#define KM_CTLSX_BR KM_CTLS_IBR, KM_CTLS_CBR, KM_CTLS_OBR
+#define KM_CTLX_TR KM_CTL_ITR, KM_CTL_CTR, KM_CTL_OTR
+#define KM_CTLX_MR KM_CTL_IMR, KM_CTL_CMR, KM_CTL_OMR
+#define KM_CTLX_BR KM_CTL_IBR, KM_CTL_CBR, KM_CTL_OBR

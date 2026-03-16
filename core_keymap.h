@@ -18,23 +18,23 @@
 
 #include QMK_KEYBOARD_H
 
-// Define the layers.
+// Define layers.
 
 enum {
   LAYER_BASE,
-  LAYER_LEXT,
-  LAYER_REXT,
+  LAYER_LBASEX,
+  LAYER_RBASEX,
   LAYER_LSYM,
-  LAYER_LSYM_EXT,
+  LAYER_LSYMX,
   LAYER_RSYM,
-  LAYER_RSYM_EXT,
-  LAYER_NUM,
-  LAYER_NUM_EXT,
-  LAYER_NAV,
-  LAYER_NAV_EXT,
-  LAYER_FUNC,
-  LAYER_FUNC_EXT,
-  LAYER_CTLS,
+  LAYER_RSYMX,
+  LAYER_LNUM,
+  LAYER_LNUMX,
+  LAYER_RNUM,
+  LAYER_RNUMX,
+  LAYER_LCTL,
+  LAYER_LCTLX,
+  LAYER_RCTL,
   LAYER_LMOD,
   LAYER_RMOD
 };
@@ -47,7 +47,7 @@ enum {
 
 // Check whether the standard keyboard header has been overriden.
 
-#if defined(CORE_KEYMAP_ZILPZALP) || defined(CORE_KEYMAP_ZILPZALP_ALT)
+#if defined(CORE_KEYMAP_ZILPZALP) || defined(CORE_KEYMAP_ZILPZALP_ALT_BASE)
 #  define CORE_KEYBOARD_H "core_keymap_keyboard_zilpzalp.h"
 #endif
 
