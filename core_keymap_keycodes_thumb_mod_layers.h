@@ -136,17 +136,17 @@
 
 // Extended number and navigation layers.
 
-#define KM_NUM_OTL KC_PLUS
-#define KM_NUM_OML KC_EQL
+#define KM_NUM_OTL KC_MINS
+#define KM_NUM_OML KC_DOT
 #define KM_NUM_OBL KC_SLSH
 
 #define KM_NUM_CTL KC_NO
-#define KM_NUM_CML KC_0
+#define KM_NUM_CML KC_EQL
 #define KM_NUM_CBL KC_NO
 
-#define KM_NUM_ITL KC_ASTR
-#define KM_NUM_IML KC_MINS
-#define KM_NUM_IBL KC_DOT
+#define KM_NUM_ITL KC_PLUS
+#define KM_NUM_IML KC_0
+#define KM_NUM_IBL KC_ASTR
 
 #define KM_NUM_ITR WS_PDSK
 #define KM_NUM_IMR KC_HOME
