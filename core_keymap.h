@@ -41,8 +41,8 @@ enum {
 
 // Check whether the standard keycodes header has been overriden.
 
-#ifdef CORE_KEYMAP_THUMB_MODS
-#  define CORE_KEYCODES_H "core_keymap_keycodes_thumb_mods.h"
+#ifdef CORE_KEYMAP_THUMB_MOD_LAYERS
+#  define CORE_KEYCODES_H "core_keymap_keycodes_thumb_mod_layers.h"
 #endif
 
 // Check whether the standard keyboard header has been overriden.
