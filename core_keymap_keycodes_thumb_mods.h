@@ -16,36 +16,37 @@
 
 // Layer-tap keycodes.
 
-#define LT_RMOD LT(LAYER_RMOD,   KC_R)
-#define LT_RSYM LT(LAYER_RSYM,   KC_S)
-#define LT_REXT LT(LAYER_RBASEX, KC_T)
-#define LT_RNUM LT(LAYER_RNUM,   KC_SPC)
-#define LT_LNUM LT(LAYER_LNUM,   KC_ENT)
-#define LT_LEXT LT(LAYER_LBASEX, KC_N)
-#define LT_LSYM LT(LAYER_LSYM,   KC_E)
-#define LT_LMOD LT(LAYER_LMOD,   KC_I)
+#define LT_RSYM LT(LAYER_RSYM,   KC_R)
+#define LT_REXT LT(LAYER_RBASEX, KC_S)
+#define LT_RNUM LT(LAYER_RNUM,   KC_T)
+#define LT_LNUM LT(LAYER_LNUM,   KC_N)
+#define LT_LEXT LT(LAYER_LBASEX, KC_E)
+#define LT_LSYM LT(LAYER_LSYM,   KC_I)
+
+#define LT_LMOD LT(LAYER_LMOD, KC_SPC)
+#define LT_RMOD LT(LAYER_RMOD, KC_ENT)
 
 // Base layer.
 
 #define LY_BASE_TL KC_W,    KC_F,    KC_P
-#define LY_BASE_ML LT_RMOD, LT_RSYM, LT_REXT
+#define LY_BASE_ML LT_RSYM, LT_REXT, LT_RNUM
 #define LY_BASE_BL KC_X,    KC_C,    KC_D
 
 #define LY_BASE_TR KC_L,    KC_U,    KC_BSPC
-#define LY_BASE_MR LT_LEXT, LT_LSYM, LT_LMOD
+#define LY_BASE_MR LT_LNUM, LT_LEXT, LT_LSYM
 #define LY_BASE_BR KC_H,    KC_COMM, KC_DOT
 
 // Base layer and extended base layer thumb keys.
 
 #define LY_BASE_OTHL KC_TAB
-#define LY_BASE_ITHL LT_RNUM
-#define LY_BASE_ITHR LT_LNUM
+#define LY_BASE_ITHL LT_LMOD
+#define LY_BASE_ITHR LT_RMOD
 #define LY_BASE_OTHR KC_ESC
 
-#define LY_BASEX_OTHL S(KC_TAB)
-#define LY_BASEX_ITHL CW_TOGG
+#define LY_BASEX_OTHL KC_TRNS
+#define LY_BASEX_ITHL KC_TRNS
 #define LY_BASEX_ITHR KC_TRNS
-#define LY_BASEX_OTHR CK_VCMD
+#define LY_BASEX_OTHR KC_TRNS
 
 // Extended base layer.
 
@@ -85,10 +86,10 @@
 
 // Symbol layer thumb keys.
 
-#define LY_SYM_OTHL S(KC_TAB)
-#define LY_SYM_ITHL CW_TOGG
-#define LY_SYM_ITHR CW_TOGG
-#define LY_SYM_OTHR CK_VCMD
+#define LY_SYM_OTHL KC_TRNS
+#define LY_SYM_ITHL KC_TRNS
+#define LY_SYM_ITHR KC_TRNS
+#define LY_SYM_OTHR KC_TRNS
 
 // Extended symbol layers.
 
@@ -105,16 +106,16 @@
 #define LY_SYM_IBL KC_RBRC
 
 #define LY_SYM_ITR KC_CIRC
-#define LY_SYM_IMR KC_UNDS
-#define LY_SYM_IBR KC_MINS
+#define LY_SYM_IMR KC_NO
+#define LY_SYM_IBR KC_NO
 
-#define LY_SYM_CTR KC_NO
-#define LY_SYM_CMR KC_NO
+#define LY_SYM_CTR KC_UNDS
+#define LY_SYM_CMR KC_MINS
 #define LY_SYM_CBR KC_NO
 
-#define LY_SYM_OTR KC_NO
-#define LY_SYM_OMR KC_PLUS
-#define LY_SYM_OBR KC_EQL
+#define LY_SYM_OTR KC_PLUS
+#define LY_SYM_OMR KC_EQL
+#define LY_SYM_OBR KC_NO
 
 // Number and navigation layers.
 
@@ -129,23 +130,23 @@
 // Number and navigation layer thumb keys.
 
 #define LY_NUM_OTHL KC_TRNS
-#define LY_NUM_ITHL KC_0
+#define LY_NUM_ITHL KC_TRNS
 #define LY_NUM_ITHR KC_TRNS
 #define LY_NUM_OTHR KC_TRNS
 
 // Extended number and navigation layers.
 
-#define LY_NUM_OTL KC_PLUS
-#define LY_NUM_OML KC_EQL
+#define LY_NUM_OTL KC_MINS
+#define LY_NUM_OML KC_DOT
 #define LY_NUM_OBL KC_SLSH
 
 #define LY_NUM_CTL KC_NO
-#define LY_NUM_CML KC_0
+#define LY_NUM_CML KC_EQL
 #define LY_NUM_CBL KC_NO
 
-#define LY_NUM_ITL KC_ASTR
-#define LY_NUM_IML KC_MINS
-#define LY_NUM_IBL KC_DOT
+#define LY_NUM_ITL KC_PLUS
+#define LY_NUM_IML KC_0
+#define LY_NUM_IBL KC_ASTR
 
 #define LY_NUM_ITR WS_PDSK
 #define LY_NUM_IMR KC_HOME
@@ -204,19 +205,19 @@
 
 // Mod layers.
 
-#define LY_MOD_TL KC_NO,   KC_NO,  KC_NO
-#define LY_MOD_ML KC_TRNS, HM_SFT, HM_CTL
-#define LY_MOD_BL KC_NO,   HM_GUI, HM_ALT
+#define LY_MOD_TL KC_NO,  KC_NO,  KC_NO
+#define LY_MOD_ML HM_ALT, HM_CTL, HM_SFT
+#define LY_MOD_BL KC_NO,  HM_GUI, KC_NO
 
 #define LY_MOD_TR KC_NO,  KC_NO,  KC_NO
-#define LY_MOD_MR HM_CTL, HM_SFT, KC_TRNS
-#define LY_MOD_BR HM_ALT, HM_GUI, KC_NO
+#define LY_MOD_MR HM_SFT, HM_CTL, HM_ALT
+#define LY_MOD_BR KC_NO,  HM_GUI, KC_NO
 
 // Mod layer thumb keys.
 
 #define LY_MOD_OTHL S(KC_TAB)
-#define LY_MOD_ITHL KC_SPC
-#define LY_MOD_ITHR KC_ENT
+#define LY_MOD_ITHL KC_TAB
+#define LY_MOD_ITHR KC_ESC
 #define LY_MOD_OTHR CK_VCMD
 
 // Extended mod layers.

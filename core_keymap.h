@@ -41,14 +41,14 @@ enum {
 
 // Check whether the standard keycodes header has been overriden.
 
-#ifdef CORE_KEYMAP_THUMB_MOD_LAYERS
-#  define CORE_KEYCODES_H "core_keymap_keycodes_thumb_mod_layers.h"
+#ifdef CORE_KEYMAP_THUMB_MODS
+#  define CORE_KEYCODES_H "core_keymap_keycodes_thumb_mods.h"
 #endif
 
 // Check whether the standard keyboard header has been overriden.
 
 #if defined(CORE_KEYMAP_ZILPZALP) || defined(CORE_KEYMAP_ZILPZALP_ALT_BASE)
-#  define CORE_KEYBOARD_H "core_keymap_keyboard_zilpzalp.h"
+#  define CORE_LAYOUT_H "core_keymap_layout_zilpzalp.h"
 #endif
 
 // Use the standard keycodes and keyboard headers by default if no alternatives
@@ -58,8 +58,8 @@ enum {
 #  define CORE_KEYCODES_H "core_keymap_keycodes.h"
 #endif
 
-#ifndef CORE_KEYBOARD_H
-#  define CORE_KEYBOARD_H "core_keymap_keyboard.h"
+#ifndef CORE_LAYOUT_H
+#  define CORE_LAYOUT_H "core_keymap_layout.h"
 #endif
 
 // Include the fillers headers first, since they have no dependencies.
@@ -76,4 +76,4 @@ enum {
 
 // The keyboard header depends on all of the above.
 
-#include CORE_KEYBOARD_H
+#include CORE_LAYOUT_H

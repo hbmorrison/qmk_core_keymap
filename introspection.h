@@ -18,7 +18,7 @@
 
 #include QMK_KEYBOARD_H
 
-// Use introspection to add the keymap layout into the keymap.
+// Use introspection to add the keymap.
 
 #include "core_keymap.h"
-#include "core_keymap_layout.h"
+#include "core_keymap_keymaps.h"
