@@ -16,52 +16,40 @@
 
 // Define the extended base layers.
 
-#define LY_BASEX_TL LY_BASE_OTL, LY_BASE_CTL, LY_BASE_ITL
-#define LY_BASEX_ML LY_BASE_OML, LY_BASE_CML, LY_BASE_IML
-#define LY_BASEX_BL LY_BASE_OBL, LY_BASE_CBL, LY_BASE_IBL
+#define KM_BASEX_TL KM_BASE_OTL, KM_BASE_CTL, KM_BASE_ITL
+#define KM_BASEX_ML KM_BASE_OML, KM_BASE_CML, KM_BASE_IML
+#define KM_BASEX_BL KM_BASE_OBL, KM_BASE_CBL, KM_BASE_IBL
 
-#define LY_BASEX_TR LY_BASE_ITR, LY_BASE_CTR, LY_BASE_OTR
-#define LY_BASEX_MR LY_BASE_IMR, LY_BASE_CMR, LY_BASE_OMR
-#define LY_BASEX_BR LY_BASE_IBR, LY_BASE_CBR, LY_BASE_OBR
+#define KM_BASEX_TR KM_BASE_ITR, KM_BASE_CTR, KM_BASE_OTR
+#define KM_BASEX_MR KM_BASE_IMR, KM_BASE_CMR, KM_BASE_OMR
+#define KM_BASEX_BR KM_BASE_IBR, KM_BASE_CBR, KM_BASE_OBR
 
 // Define the extended symbol layers.
 
-#define LY_SYMX_TL LY_SYM_OTL, LY_SYM_CTL, LY_SYM_ITL
-#define LY_SYMX_ML LY_SYM_OML, LY_SYM_CML, LY_SYM_IML
-#define LY_SYMX_BL LY_SYM_OBL, LY_SYM_CBL, LY_SYM_IBL
+#define KM_SYMX_TL KM_SYM_OTL, KM_SYM_CTL, KM_SYM_ITL
+#define KM_SYMX_ML KM_SYM_OML, KM_SYM_CML, KM_SYM_IML
+#define KM_SYMX_BL KM_SYM_OBL, KM_SYM_CBL, KM_SYM_IBL
 
-// CORE_KEYMAP_EXTENDED_ALT_RSYMX - moves the minus, underscore, equals and plus
-// keys to the top of the middle and right columns, rather than their default
-// placement on the bottom of the left and right columns. This makes using them
-// feel more like a standard ANSI/ISO keyboard, where these pairs of keycodes
-// sit on two keys at the top right of the keyboard.
-
-#ifdef CORE_KEYMAP_EXTENDED_ALT_RSYMX
-#  define LY_SYMX_TR LY_SYM_ITR, LY_SYM_IMR, LY_SYM_OMR
-#  define LY_SYMX_MR KC_NO,      LY_SYM_IBR, LY_SYM_OBR
-#  define LY_SYMX_BR KC_NO,      KC_NO,      KC_NO
-#else
-#  define LY_SYMX_TR LY_SYM_ITR, LY_SYM_CTR, LY_SYM_OTR
-#  define LY_SYMX_MR LY_SYM_IMR, LY_SYM_CMR, LY_SYM_OMR
-#  define LY_SYMX_BR LY_SYM_IBR, LY_SYM_CBR, LY_SYM_OBR
-#endif
+#define KM_SYMX_TR KM_SYM_ITR, KM_SYM_CTR, KM_SYM_OTR
+#define KM_SYMX_MR KM_SYM_IMR, KM_SYM_CMR, KM_SYM_OMR
+#define KM_SYMX_BR KM_SYM_IBR, KM_SYM_CBR, KM_SYM_OBR
 
 // Define the extended number layers.
 
-#define LY_NUMX_TL LY_NUM_OTL, LY_NUM_CTL, LY_NUM_ITL
-#define LY_NUMX_ML LY_NUM_OML, LY_NUM_CML, LY_NUM_IML
-#define LY_NUMX_BL LY_NUM_OBL, LY_NUM_CBL, LY_NUM_IBL
+#define KM_NUMX_TL KM_NUM_OTL, KM_NUM_CTL, KM_NUM_ITL
+#define KM_NUMX_ML KM_NUM_OML, KM_NUM_CML, KM_NUM_IML
+#define KM_NUMX_BL KM_NUM_OBL, KM_NUM_CBL, KM_NUM_IBL
 
-#define LY_NUMX_TR LY_NUM_ITR, LY_NUM_CTR, LY_NUM_OTR
-#define LY_NUMX_MR LY_NUM_IMR, LY_NUM_CMR, LY_NUM_OMR
-#define LY_NUMX_BR LY_NUM_IBR, LY_NUM_CBR, LY_NUM_OBR
+#define KM_NUMX_TR KM_NUM_ITR, KM_NUM_CTR, KM_NUM_OTR
+#define KM_NUMX_MR KM_NUM_IMR, KM_NUM_CMR, KM_NUM_OMR
+#define KM_NUMX_BR KM_NUM_IBR, KM_NUM_CBR, KM_NUM_OBR
 
 // Define the extended control layers.
 
-#define LY_CTLX_TL LY_CTL_OTL, LY_CTL_CTL, LY_CTL_ITL
-#define LY_CTLX_ML LY_CTL_OML, LY_CTL_CML, LY_CTL_IML
-#define LY_CTLX_BL LY_CTL_OBL, LY_CTL_CBL, LY_CTL_IBL
+#define KM_CTLX_TL KM_CTL_OTL, KM_CTL_CTL, KM_CTL_ITL
+#define KM_CTLX_ML KM_CTL_OML, KM_CTL_CML, KM_CTL_IML
+#define KM_CTLX_BL KM_CTL_OBL, KM_CTL_CBL, KM_CTL_IBL
 
-#define LY_CTLX_TR LY_CTL_ITR, LY_CTL_CTR, LY_CTL_OTR
-#define LY_CTLX_MR LY_CTL_IMR, LY_CTL_CMR, LY_CTL_OMR
-#define LY_CTLX_BR LY_CTL_IBR, LY_CTL_CBR, LY_CTL_OBR
+#define KM_CTLX_TR KM_CTL_ITR, KM_CTL_CTR, KM_CTL_OTR
+#define KM_CTLX_MR KM_CTL_IMR, KM_CTL_CMR, KM_CTL_OMR
+#define KM_CTLX_BR KM_CTL_IBR, KM_CTL_CBR, KM_CTL_OBR
