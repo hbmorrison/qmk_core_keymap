@@ -16,38 +16,40 @@
 
 // Layer-tap keycodes.
 
-#define LT_RMOD LT(LAYER_RMOD,   KC_R)
-#define LT_RSYM LT(LAYER_RSYM,   KC_S)
-#define LT_REXT LT(LAYER_RBASEX, KC_T)
-#define LT_RNUM LT(LAYER_RNUM,   KC_SPC)
-#define LT_LNUM LT(LAYER_LNUM,   KC_ENT)
-#define LT_LEXT LT(LAYER_LBASEX, KC_N)
-#define LT_LSYM LT(LAYER_LSYM,   KC_E)
-#define LT_LMOD LT(LAYER_LMOD,   KC_I)
+#define LT_RSYM LT(LAYER_RSYM, KC_R)
+#define LT_RNUM LT(LAYER_RNUM, KC_T)
+#define LT_LNUM LT(LAYER_LNUM, KC_N)
+#define LT_LSYM LT(LAYER_LSYM, KC_I)
 
-// Base layer.
+// Oneshot layer keycodes.
 
-#define KM_BASE_TL KC_W,    KC_F,    KC_P
-#define KM_BASE_ML LT_RMOD, LT_RSYM, LT_REXT
-#define KM_BASE_BL KC_X,    KC_C,    KC_D
+#define OS_REXT OSL(LAYER_RBASEX)
+#define OS_LEXT OSL(LAYER_LBASEX)
+
+// Oneshot modifier keycodes.
+
+#define OS_SFT OSM(MOD_BIT(KC_LSFT))
+#define OS_CTL OSM(MOD_BIT(KC_LCTL))
+#define OS_ALT OSM(MOD_BIT(KC_LALT))
+
+// Base layer rows.
+
+#define KM_BASE_TL KC_W,    KC_F, KC_P
+#define KM_BASE_ML LT_RSYM, KC_S, LT_RNUM
+#define KM_BASE_BL KC_X,    KC_C, KC_D
 
 #define KM_BASE_TR KC_L,    KC_U,    KC_BSPC
-#define KM_BASE_MR LT_LEXT, LT_LSYM, LT_LMOD
+#define KM_BASE_MR LT_LNUM, KC_E,    LT_LSYM
 #define KM_BASE_BR KC_H,    KC_COMM, KC_DOT
 
-// Base layer and extended base layer thumb keys.
+// Base layer thumb keys.
 
 #define KM_BASE_OTHL KC_TAB
-#define KM_BASE_ITHL LT_RNUM
-#define KM_BASE_ITHR LT_LNUM
+#define KM_BASE_ITHL OS_REXT
+#define KM_BASE_ITHR OS_LEXT
 #define KM_BASE_OTHR KC_ESC
 
-#define KM_BASEX_OTHL S(KC_TAB)
-#define KM_BASEX_ITHL CW_TOGG
-#define KM_BASEX_ITHR KC_TRNS
-#define KM_BASEX_OTHR CK_VCMD
-
-// Extended base layer.
+// Base layer extended keys.
 
 #define KM_BASE_OTL KC_Q
 #define KM_BASE_OML KC_A
@@ -73,9 +75,36 @@
 #define KM_BASE_OMR KC_O
 #define KM_BASE_OBR KC_SLSH
 
-// Symbol layers.
+// Extended base layer rows.
 
-#define KM_SYM_TL KC_EXLM, CK_AT,   KC_DLR
+#define KM_BASE_EXT_TL KM_BASE_OTL, KM_BASE_CTL, KM_BASE_ITL
+#define KM_BASE_EXT_ML KM_BASE_OML, KM_BASE_CML, KM_BASE_IML
+#define KM_BASE_EXT_BL KM_BASE_OBL, KM_BASE_CBL, KM_BASE_IBL
+
+#define KM_BASE_EXT_TR KM_BASE_ITR, KM_BASE_CTR, KM_BASE_OTR
+#define KM_BASE_EXT_MR KM_BASE_IMR, KM_BASE_CMR, KM_BASE_OMR
+#define KM_BASE_EXT_BR KM_BASE_IBR, KM_BASE_CBR, KM_BASE_OBR
+
+// Extended base layer modifier rows.
+
+#define KM_BASE_MOD_TL KC_NO,  KC_NO,  KC_NO
+#define KM_BASE_MOD_ML OS_ALT, OS_CTL, OS_SFT
+#define KM_BASE_MOD_BL KC_NO,  KC_NO,  KC_NO
+
+#define KM_BASE_MOD_TR KC_NO,  KC_NO,  KC_NO
+#define KM_BASE_MOD_MR OS_SFT, OS_CTL, OS_ALT
+#define KM_BASE_MOD_BR KC_NO,  KC_NO,  KC_NO
+
+// Extended base layer thumb keys.
+
+#define KM_BASE_EXT_OTHL S(KC_TAB)
+#define KM_BASE_EXT_ITHL KC_SPC
+#define KM_BASE_EXT_ITHR KC_ENT
+#define KM_BASE_EXT_OTHR CK_VCMD
+
+// Symbol layer rows.
+
+#define KM_SYM_TL CK_AT,   KC_HASH, KC_DLR
 #define KM_SYM_ML CK_TILD, KC_LPRN, KC_LCBR
 #define KM_SYM_BL CK_GRV,  KC_RPRN, KC_RCBR
 
@@ -85,18 +114,18 @@
 
 // Symbol layer thumb keys.
 
-#define KM_SYM_OTHL S(KC_TAB)
-#define KM_SYM_ITHL CW_TOGG
-#define KM_SYM_ITHR CW_TOGG
-#define KM_SYM_OTHR CK_VCMD
+#define KM_SYM_OTHL KC_TRNS
+#define KM_SYM_ITHL KC_TRNS
+#define KM_SYM_ITHR KC_TRNS
+#define KM_SYM_OTHR KC_TRNS
 
-// Extended symbol layers.
+// Symbol layer extended keys.
 
 #define KM_SYM_OTL KC_GRV
-#define KM_SYM_OML KC_NO
+#define KM_SYM_OML KC_EXLM
 #define KM_SYM_OBL KC_NO
 
-#define KM_SYM_CTL KC_HASH
+#define KM_SYM_CTL KC_NO
 #define KM_SYM_CML KC_NO
 #define KM_SYM_CBL KC_NO
 
@@ -105,18 +134,35 @@
 #define KM_SYM_IBL KC_RBRC
 
 #define KM_SYM_ITR KC_CIRC
-#define KM_SYM_IMR KC_UNDS
-#define KM_SYM_IBR KC_MINS
+#define KM_SYM_IMR KC_NO
+#define KM_SYM_IBR KC_NO
 
-#define KM_SYM_CTR KC_NO
-#define KM_SYM_CMR KC_NO
+#define KM_SYM_CTR KC_UNDS
+#define KM_SYM_CMR KC_MINS
 #define KM_SYM_CBR KC_NO
 
-#define KM_SYM_OTR KC_NO
-#define KM_SYM_OMR KC_PLUS
-#define KM_SYM_OBR KC_EQL
+#define KM_SYM_OTR KC_PLUS
+#define KM_SYM_OMR KC_EQL
+#define KM_SYM_OBR KC_NO
 
-// Number and navigation layers.
+// Extended symbol layer rows.
+
+#define KM_SYM_EXT_TL KM_SYM_OTL, KM_SYM_CTL, KM_SYM_ITL
+#define KM_SYM_EXT_ML KM_SYM_OML, KM_SYM_CML, KM_SYM_IML
+#define KM_SYM_EXT_BL KM_SYM_OBL, KM_SYM_CBL, KM_SYM_IBL
+
+#define KM_SYM_EXT_TR KM_SYM_ITR, KM_SYM_CTR, KM_SYM_OTR
+#define KM_SYM_EXT_MR KM_SYM_IMR, KM_SYM_CMR, KM_SYM_OMR
+#define KM_SYM_EXT_BR KM_SYM_IBR, KM_SYM_CBR, KM_SYM_OBR
+
+// Extended symbol layer thumb keys.
+
+#define KM_SYM_EXT_OTHL KC_TRNS
+#define KM_SYM_EXT_ITHL KC_TRNS
+#define KM_SYM_EXT_ITHR KC_TRNS
+#define KM_SYM_EXT_OTHR KC_TRNS
+
+// Number layer rows.
 
 #define KM_NUM_TL KC_1, KC_2, KC_3
 #define KM_NUM_ML KC_4, KC_5, KC_6
@@ -124,28 +170,28 @@
 
 #define KM_NUM_TR WS_PWIN, KC_UP,   WS_NWIN
 #define KM_NUM_MR KC_LEFT, KC_DOWN, KC_RIGHT
-#define KM_NUM_BR WS_PTAB, CK_SSHS, WS_NTAB
+#define KM_NUM_BR WS_PTAB, KC_NO,   WS_NTAB
 
-// Number and navigation layer thumb keys.
+// Number layer thumb keys.
 
 #define KM_NUM_OTHL KC_TRNS
-#define KM_NUM_ITHL KC_0
+#define KM_NUM_ITHL KC_TRNS
 #define KM_NUM_ITHR KC_TRNS
 #define KM_NUM_OTHR KC_TRNS
 
-// Extended number and navigation layers.
+// Number layer extended keys.
 
 #define KM_NUM_OTL KC_PLUS
-#define KM_NUM_OML KC_EQL
-#define KM_NUM_OBL KC_SLSH
+#define KM_NUM_OML KC_DOT
+#define KM_NUM_OBL KC_MINS
 
 #define KM_NUM_CTL KC_NO
-#define KM_NUM_CML KC_0
+#define KM_NUM_CML KC_NO
 #define KM_NUM_CBL KC_NO
 
 #define KM_NUM_ITL KC_ASTR
-#define KM_NUM_IML KC_MINS
-#define KM_NUM_IBL KC_DOT
+#define KM_NUM_IML KC_0
+#define KM_NUM_IBL KC_SLSH
 
 #define KM_NUM_ITR WS_PDSK
 #define KM_NUM_IMR KC_HOME
@@ -153,13 +199,30 @@
 
 #define KM_NUM_CTR KC_PGUP
 #define KM_NUM_CMR KC_PGDN
-#define KM_NUM_CBR KC_NO
+#define KM_NUM_CBR CK_SSHS
 
 #define KM_NUM_OTR WS_NDSK
 #define KM_NUM_OMR KC_END
 #define KM_NUM_OBR KC_NO
 
-// Function and control layers.
+// Extended number layer rows.
+
+#define KM_NUM_EXT_TL KM_NUM_OTL, KM_NUM_CTL, KM_NUM_ITL
+#define KM_NUM_EXT_ML KM_NUM_OML, KM_NUM_CML, KM_NUM_IML
+#define KM_NUM_EXT_BL KM_NUM_OBL, KM_NUM_CBL, KM_NUM_IBL
+
+#define KM_NUM_EXT_TR KM_NUM_ITR, KM_NUM_CTR, KM_NUM_OTR
+#define KM_NUM_EXT_MR KM_NUM_IMR, KM_NUM_CMR, KM_NUM_OMR
+#define KM_NUM_EXT_BR KM_NUM_IBR, KM_NUM_CBR, KM_NUM_OBR
+
+// Extended number layer thumb keys.
+
+#define KM_NUM_EXT_OTHL KC_TRNS
+#define KM_NUM_EXT_ITHL KC_TRNS
+#define KM_NUM_EXT_ITHR KC_TRNS
+#define KM_NUM_EXT_OTHR KC_TRNS
+
+// Control layer rows.
 
 #define KM_CTL_TL KC_F1, KC_F2, KC_F3
 #define KM_CTL_ML KC_F4, KC_F5, KC_F6
@@ -169,14 +232,14 @@
 #define KM_CTL_MR KC_VOLU, KC_MNXT, KC_BRIU
 #define KM_CTL_BR KC_VOLD, KC_MPRV, KC_BRID
 
-// Function and control layer thumb keys.
+// Control layer thumb keys.
 
 #define KM_CTL_OTHL KC_TRNS
 #define KM_CTL_ITHL KC_TRNS
 #define KM_CTL_ITHR KC_TRNS
 #define KM_CTL_OTHR KC_TRNS
 
-// Extended function and control layers.
+// Control layer extended keys.
 
 #define KM_CTL_OTL KC_F13
 #define KM_CTL_OML KC_F14
@@ -202,45 +265,62 @@
 #define KM_CTL_OMR KC_NO
 #define KM_CTL_OBR KC_NO
 
-// Mod layers.
+// Extended control layer rows.
 
-#define KM_MOD_TL KC_NO,   KC_NO,  KC_NO
-#define KM_MOD_ML KC_TRNS, HM_SFT, HM_CTL
-#define KM_MOD_BL KC_NO,   HM_GUI, HM_ALT
+#define KM_CTL_EXT_TL KM_CTL_OTL, KM_CTL_CTL, KM_CTL_ITL
+#define KM_CTL_EXT_ML KM_CTL_OML, KM_CTL_CML, KM_CTL_IML
+#define KM_CTL_EXT_BL KM_CTL_OBL, KM_CTL_CBL, KM_CTL_IBL
 
-#define KM_MOD_TR KC_NO,  KC_NO,  KC_NO
-#define KM_MOD_MR HM_CTL, HM_SFT, KC_TRNS
-#define KM_MOD_BR HM_ALT, HM_GUI, KC_NO
+#define KM_CTL_EXT_TR KM_CTL_ITR, KM_CTL_CTR, KM_CTL_OTR
+#define KM_CTL_EXT_MR KM_CTL_IMR, KM_CTL_CMR, KM_CTL_OMR
+#define KM_CTL_EXT_BR KM_CTL_IBR, KM_CTL_CBR, KM_CTL_OBR
 
-// Mod layer thumb keys.
+// Extended control layer thumb keys.
 
-#define KM_MOD_OTHL S(KC_TAB)
-#define KM_MOD_ITHL KC_SPC
-#define KM_MOD_ITHR KC_ENT
-#define KM_MOD_OTHR CK_VCMD
+#define KM_CTL_EXT_OTHL KC_TRNS
+#define KM_CTL_EXT_ITHL KC_TRNS
+#define KM_CTL_EXT_ITHR KC_TRNS
+#define KM_CTL_EXT_OTHR KC_TRNS
 
-// Extended mod layers.
+// Filler rows.
 
-#define KM_MOD_OTL KC_NO
-#define KM_MOD_OML KC_NO
-#define KM_MOD_OBL KC_NO
+#define KM_FILL_TL KC_NO,   KC_NO,   KC_NO
+#define KM_FILL_ML KC_TRNS, KC_TRNS, KC_TRNS
+#define KM_FILL_BL KC_NO,   KC_NO,   KC_NO
 
-#define KM_MOD_CTL KC_NO
-#define KM_MOD_CML KC_NO
-#define KM_MOD_CBL KC_NO
+#define KM_FILL_TR  KC_NO,   KC_NO,   KC_NO
+#define KM_FILL_MR  KC_TRNS, KC_TRNS, KC_TRNS
+#define KM_FILL_BR  KC_NO,   KC_NO,   KC_NO
 
-#define KM_MOD_ITL KC_NO
-#define KM_MOD_IML KC_NO
-#define KM_MOD_IBL KC_NO
+// Filler thumb keys.
 
-#define KM_MOD_ITR KC_NO
-#define KM_MOD_IMR KC_NO
-#define KM_MOD_IBR KC_NO
+#define KM_FILL_OTHL KC_TRNS
+#define KM_FILL_ITHL KC_TRNS
+#define KM_FILL_ITHR KC_TRNS
+#define KM_FILL_OTHR KC_TRNS
 
-#define KM_MOD_CTR KC_NO
-#define KM_MOD_CMR KC_NO
-#define KM_MOD_CBR KC_NO
+// Filler extended keys.
 
-#define KM_MOD_OTR KC_NO
-#define KM_MOD_OMR KC_NO
-#define KM_MOD_OBR KC_NO
+#define KM_FILL_OTL KC_NO
+#define KM_FILL_OML KC_NO
+#define KM_FILL_OBL KC_NO
+
+#define KM_FILL_CTL KC_NO
+#define KM_FILL_CML KC_NO
+#define KM_FILL_CBL KC_NO
+
+#define KM_FILL_ITL KC_NO
+#define KM_FILL_IML KC_NO
+#define KM_FILL_IBL KC_NO
+
+#define KM_FILL_ITR KC_NO
+#define KM_FILL_IMR KC_NO
+#define KM_FILL_IBR KC_NO
+
+#define KM_FILL_CTR KC_NO
+#define KM_FILL_CMR KC_NO
+#define KM_FILL_CBR KC_NO
+
+#define KM_FILL_OTR KC_NO
+#define KM_FILL_OMR KC_NO
+#define KM_FILL_OBR KC_NO

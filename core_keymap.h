@@ -18,64 +18,34 @@
 
 #include QMK_KEYBOARD_H
 
-// Define layers.
+// Define the layers.
 
 enum {
   LAYER_BASE,
-  LAYER_LBASEX,
-  LAYER_RBASEX,
   LAYER_LSYM,
-  LAYER_LSYMX,
   LAYER_RSYM,
+  LAYER_LSYMX,
   LAYER_RSYMX,
   LAYER_LNUM,
-  LAYER_LNUMX,
   LAYER_RNUM,
+  LAYER_LNUMX,
   LAYER_RNUMX,
   LAYER_LCTL,
-  LAYER_LCTLX,
   LAYER_RCTL,
-  LAYER_LMOD,
-  LAYER_RMOD
+  LAYER_LCTLX,
+  LAYER_RCTLX,
+  LAYER_LBASEX,
+  LAYER_RBASEX
 };
 
-// Check whether the standard keycodes header has been overriden.
+// Include the keycode definitions.
 
-#if defined(CORE_KEYMAP_THUMB_MODS)
-#  define CORE_KEYCODES_H "core_keymap_keycodes_thumb_mods.h"
-#elif defined(CORE_KEYMAP_THUMB_EXT)
-#  define CORE_KEYCODES_H "core_keymap_keycodes_thumb_ext.h"
+#include "core_keymap_keycodes.h"
+
+// Work out which keyboard layout to use, defaulting to Ferris Sweep.
+
+#if defined(CORE_KEYMAP_ZILPZALP)
+#include "core_keymap_layout_zilpzalp.h"
+#elif
+#include "core_keymap_layout_ferris.h"
 #endif
-
-// Check whether the standard keyboard header has been overriden.
-
-#if defined(CORE_KEYMAP_ZILPZALP) || defined(CORE_KEYMAP_ZILPZALP_ALT_BASE)
-#  define CORE_LAYOUT_H "core_keymap_layout_zilpzalp.h"
-#endif
-
-// Use the standard keycodes and keyboard headers by default if no alternatives
-// have been defined.
-
-#ifndef CORE_KEYCODES_H
-#  define CORE_KEYCODES_H "core_keymap_keycodes.h"
-#endif
-
-#ifndef CORE_LAYOUT_H
-#  define CORE_LAYOUT_H "core_keymap_layout.h"
-#endif
-
-// Include the fillers headers first, since they have no dependencies.
-
-#include "core_keymap_fillers.h"
-
-// The keycodes header also has no dependencies.
-
-#include CORE_KEYCODES_H
-
-// The extended keymap header depends on the defines in the keycodes header.
-
-#include "core_keymap_extended.h"
-
-// The keyboard header depends on all of the above.
-
-#include CORE_LAYOUT_H
