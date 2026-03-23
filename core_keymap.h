@@ -22,20 +22,25 @@
 
 enum {
   LAYER_BASE,
+  LAYER_LBASEX,
+  LAYER_RBASEX,
+
   LAYER_LSYM,
   LAYER_RSYM,
   LAYER_LSYMX,
   LAYER_RSYMX,
+
   LAYER_LNUM,
   LAYER_RNUM,
   LAYER_LNUMX,
   LAYER_RNUMX,
+
   LAYER_LCTL,
   LAYER_RCTL,
   LAYER_LCTLX,
-  LAYER_RCTLX,
-  LAYER_LBASEX,
-  LAYER_RBASEX
+
+  LAYER_LMOD,
+  LAYER_RMOD
 };
 
 // Include the keycode definitions.
@@ -46,6 +51,6 @@ enum {
 
 #if defined(CORE_KEYMAP_ZILPZALP)
 #include "core_keymap_layout_zilpzalp.h"
-#elif
+#else
 #include "core_keymap_layout_ferris.h"
 #endif
