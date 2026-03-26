@@ -24,8 +24,23 @@
 
 // Set various terms and timeouts.
 
-#define TAPPING_TERM 200
-#define AUTO_SHIFT_TIMEOUT 200
-#define RETRO_SHIFT 600
-#define ONESHOT_TIMEOUT 3000
-#define CAPS_WORD_IDLE_TIMEOUT 5000
+#ifndef TAPPING_TERM
+#  define TAPPING_TERM 200
+#endif
+#ifndef AUTO_SHIFT_TIMEOUT
+#  define AUTO_SHIFT_TIMEOUT 200
+#endif
+#ifndef RETRO_SHIFT
+#  define RETRO_SHIFT 600
+#endif
+#ifndef ONESHOT_TIMEOUT
+#  define ONESHOT_TIMEOUT 3000
+#endif
+#ifndef CAPS_WORD_IDLE_TIMEOUT
+#  define CAPS_WORD_IDLE_TIMEOUT 5000
+#endif
+
+// Enable permissive hold for the modifier layer-tap keys.
+
+#define PERMISSIVE_HOLD
+#define PERMISSIVE_HOLD_PER_KEY

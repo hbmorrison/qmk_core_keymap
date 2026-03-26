@@ -22,7 +22,8 @@
 
 #include "core_keymap.h"
 
-// Define layouts for each layer.
+// The keymaps array is placed here in introspection.h so that it is defined
+// early enough to be available for the other QMK features to reference.
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE]  = CORE_KEYMAP_LAYOUT( LAYOUT_BASE ),

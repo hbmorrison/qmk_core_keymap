@@ -16,12 +16,14 @@
 
 // Layer-tap keycodes.
 
+#define LT_REXT LT(LAYER_REXT, KC_SPC)
 #define LT_RMOD LT(LAYER_RMOD, KC_R)
 #define LT_RSYM LT(LAYER_RSYM, KC_S)
 #define LT_RNUM LT(LAYER_RNUM, KC_T)
 #define LT_LNUM LT(LAYER_LNUM, KC_N)
 #define LT_LSYM LT(LAYER_LSYM, KC_E)
 #define LT_LMOD LT(LAYER_LMOD, KC_I)
+#define LT_LEXT LT(LAYER_LEXT, KC_ENT)
 
 // Oneshot layer keycodes.
 
@@ -40,10 +42,10 @@
 
 // Base layer thumb keys.
 
-#define KM_BASE_OTHL KC_SPC
-#define KM_BASE_ITHL OS_REXT
-#define KM_BASE_ITHR OS_LEXT
-#define KM_BASE_OTHR KC_ENT
+#define KM_BASE_OTHL KC_TAB
+#define KM_BASE_ITHL LT_REXT
+#define KM_BASE_ITHR LT_LEXT
+#define KM_BASE_OTHR KC_ESC
 
 // Base layer extended keys.
 
@@ -51,9 +53,9 @@
 #define KM_BASE_OML KC_A
 #define KM_BASE_OBL KC_Z
 
-#define KM_BASE_CTL S(KC_TAB)
-#define KM_BASE_CML KC_SPC
-#define KM_BASE_CBL KC_TAB
+#define KM_BASE_CTL CK_OPQA
+#define KM_BASE_CML KC_TAB
+#define KM_BASE_CBL S(KC_TAB)
 
 #define KM_BASE_ITL KC_B
 #define KM_BASE_IML KC_G
@@ -63,9 +65,9 @@
 #define KM_BASE_IMR KC_M
 #define KM_BASE_IBR KC_K
 
-#define KM_BASE_CTR CK_VCMD
-#define KM_BASE_CMR KC_ENT
-#define KM_BASE_CBR KC_ESC
+#define KM_BASE_CTR CK_OPAT
+#define KM_BASE_CMR KC_ESC
+#define KM_BASE_CBR CK_VCMD
 
 #define KM_BASE_OTR KC_Y
 #define KM_BASE_OMR KC_O
@@ -84,8 +86,8 @@
 // Extended base layer thumb keys.
 
 #define KM_BASEX_OTHL S(KC_TAB)
-#define KM_BASEX_ITHL KC_TAB
-#define KM_BASEX_ITHR KC_ESC
+#define KM_BASEX_ITHL CW_TOGG
+#define KM_BASEX_ITHR CW_TOGG
 #define KM_BASEX_OTHR CK_VCMD
 
 // Symbol layer rows.
