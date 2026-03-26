@@ -122,16 +122,16 @@
 #define KM_SYM_IBL KC_RBRC
 
 #define KM_SYM_ITR KC_CIRC
-#define KM_SYM_IMR KC_UNDS
-#define KM_SYM_IBR KC_MINS
+#define KM_SYM_IMR KC_MINS
+#define KM_SYM_IBR KC_UNDS
 
 #define KM_SYM_CTR KC_NO
 #define KM_SYM_CMR KC_NO
 #define KM_SYM_CBR KC_NO
 
 #define KM_SYM_OTR KC_NO
-#define KM_SYM_OMR KC_PLUS
-#define KM_SYM_OBR KC_EQL
+#define KM_SYM_OMR KC_EQL
+#define KM_SYM_OBR KC_PLUS
 
 // Extended symbol layer rows.
 

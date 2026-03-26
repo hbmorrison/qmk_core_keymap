@@ -27,12 +27,6 @@
 #ifndef TAPPING_TERM
 #  define TAPPING_TERM 200
 #endif
-#ifndef AUTO_SHIFT_TIMEOUT
-#  define AUTO_SHIFT_TIMEOUT 200
-#endif
-#ifndef RETRO_SHIFT
-#  define RETRO_SHIFT 600
-#endif
 #ifndef ONESHOT_TIMEOUT
 #  define ONESHOT_TIMEOUT 3000
 #endif
@@ -40,7 +34,6 @@
 #  define CAPS_WORD_IDLE_TIMEOUT 5000
 #endif
 
-// Enable permissive hold for the modifier layer-tap keys.
+// Enable permissive hold for layer-tap keys.
 
 #define PERMISSIVE_HOLD
-#define PERMISSIVE_HOLD_PER_KEY

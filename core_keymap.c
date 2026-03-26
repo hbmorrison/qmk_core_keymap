@@ -50,14 +50,3 @@ void add_conditional_layers() {
 
   set_conditional_layer_mask(LAYER_RCTL, MASK_RCTL);
 };
-
-// Enable permissive hold on modifier layer-tap-keys.
-
-bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case LT_LMOD:
-    case LT_RMOD:
-      return true;
-  }
-  return false;
-}
