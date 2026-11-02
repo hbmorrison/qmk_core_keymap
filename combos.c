@@ -30,22 +30,21 @@ const uint16_t PROGMEM slsh_combo[] = {KC_COMM, KC_DOT,  COMBO_END};
 
 // Combos for corner keys in the symbol layers.
 
-const uint16_t PROGMEM sym_grv_combo[]  = {KC_EXLM, CK_AT,   COMBO_END};
+const uint16_t PROGMEM sym_exlm_combo[] = {KC_AT, CK_HASH,   COMBO_END};
 const uint16_t PROGMEM sym_perc_combo[] = {KC_HASH, KC_DLR,  COMBO_END};
 const uint16_t PROGMEM sym_circ_combo[] = {KC_AMPR, KC_ASTR, COMBO_END};
-const uint16_t PROGMEM sym_plus_combo[] = {KC_ASTR, KC_DEL,  COMBO_END};
+const uint16_t PROGMEM sym_plus_combo[] = {KC_ASTR, KC_EQL,  COMBO_END};
 
 // Combo definitions.
 
 combo_t key_combos[] = {
-  COMBO(caps_word_combo,  CW_TOGG),
   COMBO(q_combo,          KC_Q),
   COMBO(b_combo,          KC_B),
   COMBO(j_combo,          KC_J),
   COMBO(y_combo,          KC_Y),
   COMBO(z_combo,          KC_Z),
   COMBO(slsh_combo,       KC_SLSH),
-  COMBO(sym_grv_combo,    KC_GRV),
+  COMBO(sym_exlm_combo,   KC_EXLM),
   COMBO(sym_perc_combo,   KC_PERC),
   COMBO(sym_circ_combo,   KC_CIRC),
   COMBO(sym_plus_combo,   KC_PLUS)
