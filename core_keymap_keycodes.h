@@ -29,8 +29,8 @@
 #define MT_T MT(MOD_LCTL, KC_T)
 
 #define MT_N MT(MOD_LCTL, KC_N)
-#define MT_I MT(MOD_LALT, KC_E)
-#define MT_E MT(MOD_LGUI, KC_I)
+#define MT_E MT(MOD_LALT, KC_E)
+#define MT_I MT(MOD_LGUI, KC_I)
 
 #define MT_TAB MT(MOD_LSFT, KC_TAB)
 #define MT_ESC MT(MOD_LSFT, KC_ESC)
@@ -55,7 +55,7 @@
 // Base layer extended keys.
 
 #define KM_BASE_OTL KC_Q
-#define KM_BASE_OML KC_A
+#define KM_BASE_OML LT_A
 #define KM_BASE_OBL KC_Z
 
 #define KM_BASE_ITL KC_B
@@ -67,12 +67,12 @@
 #define KM_BASE_IBR KC_K
 
 #define KM_BASE_OTR KC_Y
-#define KM_BASE_OMR KC_O
+#define KM_BASE_OMR LT_O
 #define KM_BASE_OBR KC_SLSH
 
 // Symbol layer rows.
 
-#define KM_SYM_TL CK_AT,   CK_HASH, KC_DLR
+#define KM_SYM_TL CK_AT,   KC_HASH, KC_DLR
 #define KM_SYM_ML CK_TILD, KC_LBRC, KC_LCBR
 #define KM_SYM_BL CK_GRV,  KC_RBRC, KC_RCBR
 
@@ -89,7 +89,7 @@
 
 // Symbol layer extended keys.
 
-#define KM_SYM_OTL KC_EXCL
+#define KM_SYM_OTL KC_EXLM
 #define KM_SYM_OML KC_GRV
 #define KM_SYM_OBL KC_NO
 
@@ -139,34 +139,34 @@
 
 // Nav layer extended keys.
 
-#define KM_NAV_ITR WS_NO
+#define KM_NAV_ITR KC_NO
 #define KM_NAV_IMR KC_NO
 #define KM_NAV_IBR KC_NO
 
-#define KM_NAV_OTR WS_NO
+#define KM_NAV_OTR KC_NO
 #define KM_NAV_OMR KC_RIGHT
 #define KM_NAV_OBR KC_NO
 
 // Function layer rows.
 
-#define KM_CTL_TL KC_F1, KC_F2, KC_F3
-#define KM_CTL_ML KC_F4, KC_F5, KC_F6
-#define KM_CTL_BL KC_F7, KC_F8, KC_F9
+#define KM_FUNC_TL KC_F1, KC_F2, KC_F3
+#define KM_FUNC_ML KC_F4, KC_F5, KC_F6
+#define KM_FUNC_BL KC_F7, KC_F8, KC_F9
 
 // Function layer thumb keys.
 
-#define KM_CTL_OTHL KC_TRNS
-#define KM_CTL_ITHL KC_TRNS
+#define KM_FUNC_OTHL KC_TRNS
+#define KM_FUNC_ITHL KC_TRNS
 
 // Function layer extended keys.
 
-#define KM_CTL_OTL KC_NO
-#define KM_CTL_OML KC_NO
-#define KM_CTL_OBL KC_NO
+#define KM_FUNC_OTL KC_NO
+#define KM_FUNC_OML KC_NO
+#define KM_FUNC_OBL KC_NO
 
-#define KM_CTL_ITL KC_NO
-#define KM_CTL_IML KC_F10
-#define KM_CTL_IBL KC_F11
+#define KM_FUNC_ITL KC_NO
+#define KM_FUNC_IML KC_F10
+#define KM_FUNC_IBL KC_F11
 
 // Control layer rows.
 

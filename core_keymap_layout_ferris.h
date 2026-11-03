@@ -49,7 +49,7 @@
 /**/    KM_FUNC_OTL, KM_FUNC_TL,    KM_FUNC_ITL,   KM_FILL_ITR,   KM_FILL_TR,   KM_FILL_OTR, \
 /**/    KM_FUNC_OML, KM_FUNC_ML,    KM_FUNC_IML,   KM_FILL_IMR,   KM_FILL_MR,   KM_FILL_OMR, \
 /**/    KM_FUNC_OBL, KM_FUNC_BL,    KM_FUNC_IBL,   KM_FILL_IBR,   KM_FILL_BR,   KM_FILL_OBR, \
-/**/    /**/         KM_FUNC_OTHL,  KM_FUNC_ITHL   KM_FILL_ITHR,  KM_FILL_OTHR
+/**/    /**/         KM_FUNC_OTHL,  KM_FUNC_ITHL,  KM_FILL_ITHR,  KM_FILL_OTHR
 #define LAYOUT_CTL   /**/           /**/           /**/           /**/          /**/         \
 /**/    KM_FILL_OTL, KM_FILL_TL,    KM_FILL_ITL,   KM_CTL_ITR,    KM_CTL_TR,    KM_CTL_OTR,  \
 /**/    KM_FILL_OML, KM_FILL_ML,    KM_FILL_IML,   KM_CTL_IMR,    KM_CTL_MR,    KM_CTL_OMR,  \
